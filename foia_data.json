@@ -1,0 +1,212 @@
+[
+  {
+    "deptName": "Office of Personnel Management",
+    "deptAbbr": "OPM",
+    "components": [
+      {
+        "title": "Office of Personnel Management Headquarters",
+        "abbr": "OPM HQ",
+        "phone": "(202) 606-1100",
+        "emails": ["foia@opm.gov"]
+      },
+      {
+        "title": "Office of the Inspector General",
+        "abbr": "OPM OIG",
+        "phone": "(202) 606-1200",
+        "emails": ["oigfoia@opm.gov"]
+      }
+    ]
+  },
+  {
+    "deptName": "Department of Justice",
+    "deptAbbr": "DOJ",
+    "components": [
+      {
+        "title": "Federal Bureau of Investigation",
+        "abbr": "FBI",
+        "phone": "(540) 868-4593",
+        "emails": ["foiaparequest@fbi.gov"]
+      },
+      {
+        "title": "Drug Enforcement Administration",
+        "abbr": "DEA",
+        "phone": "(202) 307-7596",
+        "emails": ["dea.foia@usdoj.gov"]
+      },
+      {
+        "title": "Bureau of Alcohol, Tobacco, Firearms and Explosives",
+        "abbr": "ATF",
+        "phone": "(202) 648-8740",
+        "emails": ["foiamail@atf.gov"]
+      },
+      {
+        "title": "Federal Bureau of Prisons",
+        "abbr": "BOP",
+        "phone": "(202) 514-6655",
+        "emails": ["ogc_foia@bop.gov"]
+      },
+      {
+        "title": "Civil Rights Division",
+        "abbr": "CRT",
+        "phone": "(202) 514-4210",
+        "emails": ["crt.foiarequest@usdoj.gov"]
+      },
+      {
+        "title": "Executive Office for Immigration Review",
+        "abbr": "EOIR",
+        "phone": "(703) 605-1297",
+        "emails": ["eoir.foiarequests@usdoj.gov"]
+      },
+      {
+        "title": "United States Marshals Service",
+        "abbr": "USMS",
+        "phone": "(703) 740-3943",
+        "emails": ["usms.foia@usdoj.gov"]
+      },
+      {
+        "title": "Antitrust Division",
+        "abbr": "ATR",
+        "phone": "(202) 514-2692",
+        "emails": ["atrf.foia@usdoj.gov"]
+      }
+    ]
+  },
+  {
+    "deptName": "Department of Homeland Security",
+    "deptAbbr": "DHS",
+    "components": [
+      {
+        "title": "U.S. Customs and Border Protection",
+        "abbr": "CBP",
+        "phone": "(202) 325-0150",
+        "emails": ["cbpfoia@cbp.dhs.gov"]
+      },
+      {
+        "title": "Transportation Security Administration",
+        "abbr": "TSA",
+        "phone": "(571) 227-2300",
+        "emails": ["foia@tsa.dhs.gov"]
+      },
+      {
+        "title": "U.S. Citizenship and Immigration Services",
+        "abbr": "USCIS",
+        "phone": "(800) 375-5283",
+        "emails": ["foiapa.uscis@dhs.gov"]
+      },
+      {
+        "title": "U.S. Immigration and Customs Enforcement",
+        "abbr": "ICE",
+        "phone": "(866) 747-1948",
+        "emails": ["ice-foia@dhs.gov"]
+      },
+      {
+        "title": "Federal Emergency Management Agency",
+        "abbr": "FEMA",
+        "phone": "(202) 646-3323",
+        "emails": ["fema-foia@fema.dhs.gov"]
+      },
+      {
+        "title": "U.S. Secret Service",
+        "abbr": "USSS",
+        "phone": "(202) 406-6370",
+        "emails": ["foia@usss.dhs.gov"]
+      },
+      {
+        "title": "U.S. Coast Guard",
+        "abbr": "USCG",
+        "phone": "(202) 475-3533",
+        "emails": ["eFOIA@uscg.mil"]
+      }
+    ]
+  },
+  {
+    "deptName": "Department of Defense",
+    "deptAbbr": "DOD",
+    "components": [
+      {
+        "title": "Department of the Army",
+        "abbr": "USA",
+        "phone": "(703) 428-6501",
+        "emails": ["usarmy.foia@mail.mil"]
+      },
+      {
+        "title": "Department of the Navy",
+        "abbr": "USN",
+        "phone": "(202) 685-6500",
+        "emails": ["donfoia@navy.mil"]
+      },
+      {
+        "title": "Department of the Air Force",
+        "abbr": "USAF",
+        "phone": "(703) 614-8500",
+        "emails": ["daf.foia@us.af.mil"]
+      },
+      {
+        "title": "Defense Intelligence Agency",
+        "abbr": "DIA",
+        "phone": "(202) 231-8001",
+        "emails": ["dia-foia@dodiis.mil"]
+      },
+      {
+        "title": "National Security Agency",
+        "abbr": "NSA",
+        "phone": "(443) 654-6576",
+        "emails": ["foianet@nsa.gov"]
+      }
+    ]
+  },
+  {
+    "deptName": "Environmental Protection Agency",
+    "deptAbbr": "EPA",
+    "components": [
+      {
+        "title": "Environmental Protection Agency Headquarters",
+        "abbr": "EPA HQ",
+        "phone": "(202) 566-1667",
+        "emails": ["hq.foia@epa.gov"]
+      }
+    ]
+  },
+  {
+    "deptName": "Securities and Exchange Commission",
+    "deptAbbr": "SEC",
+    "components": [
+      {
+        "title": "Securities and Exchange Commission Headquarters",
+        "abbr": "SEC HQ",
+        "phone": "(202) 551-7900",
+        "emails": ["foiapa@sec.gov"]
+      }
+    ]
+  },
+  {
+    "deptName": "Department of the Treasury",
+    "deptAbbr": "TREAS",
+    "components": [
+      {
+        "title": "Internal Revenue Service",
+        "abbr": "IRS",
+        "phone": "(202) 317-5433",
+        "emails": ["foia@irs.gov"]
+      },
+      {
+        "title": "Office of the Comptroller of the Currency",
+        "abbr": "OCC",
+        "phone": "(202) 649-6700",
+        "emails": ["foia-pa@occ.treas.gov"]
+      }
+    ]
+  },
+  {
+    "deptName": "Department of State",
+    "deptAbbr": "DOS",
+    "components": [
+      {
+        "title": "Department of State Office of Information Programs",
+        "abbr": "DOS OIP",
+        "phone": "(202) 261-8484",
+        "emails": ["foiastatus@state.gov"]
+      }
+    ]
+  }
+]

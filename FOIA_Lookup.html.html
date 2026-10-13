@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Federal FOIA Contact Lookup Tool</title>
+    <style>
+        :root {
+            --primary: #003366;
+            --primary-hover: #002244;
+            --bg: #f4f6f9;
+            --card-bg: #ffffff;
+            --text: #222222;
+            --border: #cccccc;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--primary);
+            margin-top: 0;
+            font-size: 24px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+        }
+
+        .status-banner {
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .status-loading { background: #e3f2fd; color: #0d47a1; border: 1px solid #bbdefb; }
+        .status-success { background: #e8f5e9; color: #1b5e20; border: 1px solid #c8e6c9; }
+        .status-warning { background: #fff3e0; color: #e65100; border: 1px solid #ffe0b2; }
+
+        .search-container {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            outline: none;
+        }
+
+        input[type="text"]:focus {
+            border-color: var(--primary);
+        }
+
+        button {
+            padding: 12px 24px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .suggestions-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 120px;
+            background: white;
+            border: 1px solid var(--border);
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+            max-height: 250px;
+            overflow-y: auto;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        .suggestion-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+        }
+
+        .suggestion-item:hover {
+            background-color: #f0f4f8;
+        }
+
+        .suggestion-type {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #003366;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+
+        .output-section {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .block-container {
+            background-color: #eef2f7;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 25px;
+        }
+
+        .block-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .block-title {
+            font-weight: bold;
+            font-size: 14px;
+            color: var(--primary);
+        }
+
+        textarea {
+            width: 100%;
+            height: 70px;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 13px;
+            resize: vertical;
+        }
+
+        .copy-btn {
+            padding: 6px 12px;
+            font-size: 13px;
+            background-color: #28a745;
+        }
+
+        .copy-btn:hover {
+            background-color: #218838;
+        }
+
+        .results-header {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .card {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 12px;
+            background-color: #fff;
+        }
+
+        .card-title {
+            font-weight: bold;
+            font-size: 16px;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .card-detail {
+            font-size: 14px;
+            margin: 4px 0;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Federal FOIA Contact Lookup Tool</h1>
+    <p>Type a department or agency name (e.g., <em>Department of Justice</em>, <em>DHS</em>, <em>OPM</em>, <em>FBI</em>) to automatically populate all underlying component agencies and direct emails.</p>
+
+    <div id="statusBanner" class="status-banner status-loading">Loading FOIA database...</div>
+
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Type department or component name..." autocomplete="off">
+            <button onclick="executeSearch()">Search</button>
+        </div>
+        <div id="suggestionsDropdown" class="suggestions-dropdown"></div>
+    </div>
+
+    <div id="outputSection" class="output-section">
+        <div class="block-container">
+            <div class="block-header">
+                <span class="block-title">Comma-Separated Emails (Gmail, Webmail)</span>
+                <button class="copy-btn" onclick="copyToClipboard('commaEmails')">Copy to Clipboard</button>
+            </div>
+            <textarea id="commaEmails" readonly></textarea>
+        </div>
+
+        <div class="block-container">
+            <div class="block-header">
+                <span class="block-title">Semicolon-Separated Emails (Outlook, Desktop Apps)</span>
+                <button class="copy-btn" onclick="copyToClipboard('semicolonEmails')">Copy to Clipboard</button>
+            </div>
+            <textarea id="semicolonEmails" readonly></textarea>
+        </div>
+
+        <div id="resultsHeader" class="results-header"></div>
+        <div id="resultsList" class="results-list"></div>
+    </div>
+</div>
+
+<script>
+    let FOIA_DATABASE = [];
+
+    window.addEventListener('DOMContentLoaded', () => {
+        initializeDatabase();
+        setupAutoSuggest();
+    });
+
+    async function initializeDatabase() {
+        const banner = document.getElementById('statusBanner');
+        
+        try {
+            // Fetch JSON dataset relative to repository root
+            const response = await fetch('./foia_data.json');
+            
+            if (!response.ok) {
+                throw new Error('Failed to load local JSON file. Status: ' + response.status);
+            }
+
+            FOIA_DATABASE = await response.json();
+            
+            banner.className = 'status-banner status-success';
+            banner.innerText = `FOIA Database Active (${FOIA_DATABASE.length} Federal Departments & Agencies Loaded)`;
+
+        } catch (err) {
+            console.error('JSON fetch error:', err);
+            banner.className = 'status-banner status-warning';
+            banner.innerText = 'Unable to load dataset. Please ensure foia_data.json is present in the repository.';
+        }
+    }
+
+    function setupAutoSuggest() {
+        const input = document.getElementById('searchInput');
+        const dropdown = document.getElementById('suggestionsDropdown');
+
+        input.addEventListener('input', () => {
+            const query = input.value.trim().toLowerCase();
+            if (query.length < 1) {
+                dropdown.style.display = 'none';
+                return;
+            }
+
+            const suggestions = [];
+
+            FOIA_DATABASE.forEach(dept => {
+                if (dept.deptName.toLowerCase().includes(query) || (dept.deptAbbr && dept.deptAbbr.toLowerCase().includes(query))) {
+                    suggestions.push({
+                        label: dept.deptName,
+                        abbr: dept.deptAbbr,
+                        type: `Full Department (${dept.components.length} components)`
+                    });
+                }
+
+                dept.components.forEach(comp => {
+                    if (comp.title.toLowerCase().includes(query) || (comp.abbr && comp.abbr.toLowerCase().includes(query))) {
+                        suggestions.push({
+                            label: comp.title,
+                            abbr: comp.abbr,
+                            type: `Component under ${dept.deptName}`
+                        });
+                    }
+                });
+            });
+
+            const uniqueSuggestions = suggestions.filter((item, index, self) =>
+                index === self.findIndex((t) => t.label === item.label)
+            ).slice(0, 8);
+
+            if (uniqueSuggestions.length > 0) {
+                dropdown.innerHTML = uniqueSuggestions.map(s => `
+                    <div class="suggestion-item" onclick="selectSuggestion('${escapeJs(s.label)}')">
+                        <strong>${escapeHtml(s.label)}</strong> ${s.abbr ? '(' + escapeHtml(s.abbr) + ')' : ''}
+                        <span class="suggestion-type">${escapeHtml(s.type)}</span>
+                    </div>
+                `).join('');
+                dropdown.style.display = 'block';
+            } else {
+                dropdown.style.display = 'none';
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!input.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.style.display = 'none';
+            }
+        });
+
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                dropdown.style.display = 'none';
+                executeSearch();
+            }
+        });
+    }
+
+    function selectSuggestion(name) {
+        document.getElementById('searchInput').value = name;
+        document.getElementById('suggestionsDropdown').style.display = 'none';
+        executeSearch();
+    }
+
+    function executeSearch() {
+        const query = document.getElementById('searchInput').value.trim().toLowerCase();
+        const outputEl = document.getElementById('outputSection');
+        const resultsHeader = document.getElementById('resultsHeader');
+        const resultsList = document.getElementById('resultsList');
+
+        if (!query) {
+            alert('Please enter a department or component agency name.');
+            return;
+        }
+
+        resultsList.innerHTML = '';
+        let matchedComponents = [];
+        let headerText = "";
+
+        const matchedDept = FOIA_DATABASE.find(d => 
+            d.deptName.toLowerCase().includes(query) || 
+            (d.deptAbbr && d.deptAbbr.toLowerCase() === query)
+        );
+
+        if (matchedDept) {
+            headerText = `${matchedDept.deptName} (${matchedDept.components.length} Component Agencies Found)`;
+            matchedComponents = matchedDept.components.map(c => ({ ...c, parent: matchedDept.deptName }));
+        } else {
+            FOIA_DATABASE.forEach(d => {
+                d.components.forEach(c => {
+                    if (c.title.toLowerCase().includes(query) || (c.abbr && c.abbr.toLowerCase() === query)) {
+                        matchedComponents.push({ ...c, parent: d.deptName });
+                    }
+                });
+            });
+            headerText = `Matching Components for "${query}" (${matchedComponents.length} found)`;
+        }
+
+        const allEmails = [];
+
+        if (matchedComponents.length > 0) {
+            resultsHeader.innerText = headerText;
+            matchedComponents.forEach(m => {
+                m.emails.forEach(e => allEmails.push(e));
+                
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div class="card-title">${escapeHtml(m.title)} ${m.abbr ? '(' + escapeHtml(m.abbr) + ')' : ''}</div>
+                    <div class="card-detail"><strong>Parent Department:</strong> ${escapeHtml(m.parent)}</div>
+                    <div class="card-detail"><strong>Phone:</strong> ${escapeHtml(m.phone)}</div>
+                    <div class="card-detail"><strong>FOIA Email:</strong> ${m.emails.length > 0 ? escapeHtml(m.emails.join(', ')) : '<em>None listed (Portal submission required)</em>'}</div>
+                `;
+                resultsList.appendChild(card);
+            });
+        } else {
+            resultsHeader.innerText = `No records found`;
+            resultsList.innerHTML = `<p>No matching departments or component agencies found for "${escapeHtml(query)}". Try searching "Department of Justice", "DHS", "DOD", or "OPM".</p>`;
+        }
+
+        const uniqueEmails = [...new Set(allEmails)];
+        document.getElementById('commaEmails').value = uniqueEmails.join(', ');
+        document.getElementById('semicolonEmails').value = uniqueEmails.join('; ');
+
+        outputEl.style.display = 'block';
+    }
+
+    function copyToClipboard(elementId) {
+        const textarea = document.getElementById(elementId);
+        textarea.select();
+        document.execCommand('copy');
+        alert('Copied to clipboard!');
+    }
+
+    function escapeHtml(str) {
+        return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+
+    function escapeJs(str) {
+        return str.replace(/'/g, "\\'").replace(/"/g, '\\"');
+    }
+</script>
+
+</body>
+</html>
