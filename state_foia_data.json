@@ -151,6 +151,12 @@
         "emails": ["pra@chp.ca.gov"]
       },
       {
+        "title": "California Department of Corrections and Rehabilitation",
+        "abbr": "CDCR",
+        "phone": "(916) 445-4950",
+        "emails": ["cdcrpublicrecords@cdcr.ca.gov"]
+      },
+      {
         "title": "California Department of Transportation",
         "abbr": "Caltrans",
         "phone": "(916) 654-2852",
@@ -163,10 +169,40 @@
         "emails": ["contact@calepa.ca.gov"]
       },
       {
+        "title": "California State Water Resources Control Board",
+        "abbr": "SWRCB",
+        "phone": "(916) 341-5250",
+        "emails": ["waterqualitypra@waterboards.ca.gov"]
+      },
+      {
+        "title": "California Department of Fish and Wildlife",
+        "abbr": "CDFW",
+        "phone": "(916) 653-7664",
+        "emails": ["pra@wildlife.ca.gov"]
+      },
+      {
         "title": "California Department of Public Health",
         "abbr": "CDPH",
         "phone": "(916) 558-1784",
         "emails": ["cdphlawpra@cdph.ca.gov"]
+      },
+      {
+        "title": "California Department of Social Services",
+        "abbr": "CDSS",
+        "phone": "(916) 651-8848",
+        "emails": ["publicrecords@dss.ca.gov"]
+      },
+      {
+        "title": "California Employment Development Department",
+        "abbr": "EDD",
+        "phone": "(800) 300-5616",
+        "emails": ["eddpublicrecords@edd.ca.gov"]
+      },
+      {
+        "title": "California Department of Motor Vehicles",
+        "abbr": "DMV",
+        "phone": "(916) 657-6448",
+        "emails": ["dmvpra@dmv.ca.gov"]
       }
     ]
   },
@@ -270,6 +306,87 @@
     ]
   },
   {
+    "state": "District of Columbia",
+    "statute": "District of Columbia Freedom of Information Act (DC FOIA)",
+    "citation": "D.C. Official Code § 2-531 et seq.",
+    "response_days": "15 business days",
+    "residency_required": false,
+    "agencies": [
+      {
+        "title": "Metropolitan Police Department",
+        "abbr": "MPD",
+        "phone": "(202) 727-3721",
+        "emails": ["foia.admin@dc.gov"]
+      },
+      {
+        "title": "Office of the Attorney General for the District of Columbia",
+        "abbr": "OAG DC",
+        "phone": "(202) 807-0363",
+        "emails": ["runako.kumbula-allsopp@dc.gov"]
+      },
+      {
+        "title": "Mayor's Office of Legal Counsel",
+        "abbr": "MOLC",
+        "phone": "(202) 724-7681",
+        "emails": ["eom.foia@dc.gov"]
+      },
+      {
+        "title": "District Department of Transportation",
+        "abbr": "DDOT",
+        "phone": "(202) 671-5114",
+        "emails": ["karen.calmeise@dc.gov"]
+      },
+      {
+        "title": "Department of Corrections",
+        "abbr": "DOC",
+        "phone": "(202) 671-2055",
+        "emails": ["segun.obebe@dc.gov"]
+      },
+      {
+        "title": "Department of Health",
+        "abbr": "DC Health",
+        "phone": "(202) 442-5977",
+        "emails": ["phillip.husband@dc.gov"]
+      },
+      {
+        "title": "Department of Energy and Environment",
+        "abbr": "DOEE",
+        "phone": "(202) 481-3845",
+        "emails": ["myra.campbell@dc.gov"]
+      },
+      {
+        "title": "Department of General Services",
+        "abbr": "DGS",
+        "phone": "(202) 727-2800",
+        "emails": ["foia.dgs@dc.gov"]
+      },
+      {
+        "title": "Homeland Security and Emergency Management Agency",
+        "abbr": "HSEMA",
+        "phone": "(202) 481-3188",
+        "emails": ["hsema.foia@dc.gov"]
+      },
+      {
+        "title": "Department of Buildings",
+        "abbr": "DOB",
+        "phone": "(202) 671-3500",
+        "emails": ["erin.roberts@dc.gov"]
+      },
+      {
+        "title": "District of Columbia Public Schools",
+        "abbr": "DCPS",
+        "phone": "(202) 442-5000",
+        "emails": ["eboni.govan@k12.dc.gov"]
+      },
+      {
+        "title": "Department of Human Services",
+        "abbr": "DHS",
+        "phone": "(202) 671-4452",
+        "emails": ["folashade.bamikole@dc.gov"]
+      }
+    ]
+  },
+  {
     "state": "Florida",
     "statute": "Florida Public Records Law (Sunshine Law)",
     "citation": "Fla. Stat. Chapter 119",
@@ -289,6 +406,18 @@
         "emails": ["publicrecords@fdle.state.fl.us"]
       },
       {
+        "title": "Florida Department of Highway Safety and Motor Vehicles",
+        "abbr": "FLHSMV",
+        "phone": "(850) 617-3100",
+        "emails": ["publicrecords@flhsmv.gov"]
+      },
+      {
+        "title": "Florida Department of Corrections",
+        "abbr": "FDC",
+        "phone": "(850) 488-9165",
+        "emails": ["publicrecords@fdc.myflorida.com"]
+      },
+      {
         "title": "Florida Department of Transportation",
         "abbr": "FDOT",
         "phone": "(850) 414-4100",
@@ -301,10 +430,28 @@
         "emails": ["public.services@dep.state.fl.us"]
       },
       {
+        "title": "Florida Fish and Wildlife Conservation Commission",
+        "abbr": "FWC",
+        "phone": "(850) 488-4676",
+        "emails": ["publicrecords@myfwc.com"]
+      },
+      {
         "title": "Florida Department of Health",
         "abbr": "FDOH",
         "phone": "(850) 245-4005",
         "emails": ["publicrecords@flhealth.gov"]
+      },
+      {
+        "title": "Florida Agency for Health Care Administration",
+        "abbr": "AHCA",
+        "phone": "(850) 412-3630",
+        "emails": ["publicrecords@ahca.myflorida.com"]
+      },
+      {
+        "title": "Florida Department of Children and Families",
+        "abbr": "DCF",
+        "phone": "(850) 487-1111",
+        "emails": ["dcf.publicrecords@myflfamilies.com"]
       }
     ]
   },
@@ -1054,6 +1201,12 @@
         "emails": ["foil@troopers.ny.gov"]
       },
       {
+        "title": "New York State Department of Corrections and Community Supervision",
+        "abbr": "DOCCS",
+        "phone": "(518) 457-8182",
+        "emails": ["foil@doccs.ny.gov"]
+      },
+      {
         "title": "New York State Department of Transportation",
         "abbr": "NYSDOT",
         "phone": "(518) 457-6195",
@@ -1070,6 +1223,30 @@
         "abbr": "NYSDOH",
         "phone": "(518) 474-8734",
         "emails": ["foil@health.ny.gov"]
+      },
+      {
+        "title": "New York State Department of Motor Vehicles",
+        "abbr": "DMV",
+        "phone": "(518) 474-0840",
+        "emails": ["dmv.sm.foil@dmv.ny.gov"]
+      },
+      {
+        "title": "New York State Division of Criminal Justice Services",
+        "abbr": "DCJS",
+        "phone": "(518) 457-8413",
+        "emails": ["dcjsfoil@dcjs.ny.gov"]
+      },
+      {
+        "title": "New York State Office of Mental Health",
+        "abbr": "OMH",
+        "phone": "(518) 474-1331",
+        "emails": ["omhfoil@omh.ny.gov"]
+      },
+      {
+        "title": "New York State Department of Labor",
+        "abbr": "DOL",
+        "phone": "(518) 457-9000",
+        "emails": ["labor.sm.foil@labor.ny.gov"]
       }
     ]
   },
@@ -1423,6 +1600,12 @@
         "emails": ["ogc.openrecords@dps.texas.gov"]
       },
       {
+        "title": "Texas Department of Criminal Justice",
+        "abbr": "TDCJ",
+        "phone": "(936) 437-6144",
+        "emails": ["pia@tdcj.texas.gov"]
+      },
+      {
         "title": "Texas Department of Transportation",
         "abbr": "TxDOT",
         "phone": "(512) 463-8588",
@@ -1435,10 +1618,34 @@
         "emails": ["openrec@tceq.texas.gov"]
       },
       {
+        "title": "Texas Parks and Wildlife Department",
+        "abbr": "TPWD",
+        "phone": "(512) 389-4800",
+        "emails": ["open.records@tpwd.texas.gov"]
+      },
+      {
         "title": "Texas Department of State Health Services",
         "abbr": "DSHS",
         "phone": "(512) 776-7111",
         "emails": ["openrecords@dshs.texas.gov"]
+      },
+      {
+        "title": "Texas Health and Human Services Commission",
+        "abbr": "HHSC",
+        "phone": "(512) 424-6500",
+        "emails": ["openrecordsoffice@hhs.texas.gov"]
+      },
+      {
+        "title": "Texas Workforce Commission",
+        "abbr": "TWC",
+        "phone": "(512) 463-2222",
+        "emails": ["open.records@twc.texas.gov"]
+      },
+      {
+        "title": "Texas Education Agency",
+        "abbr": "TEA",
+        "phone": "(512) 463-9734",
+        "emails": ["pir@tea.texas.gov"]
       }
     ]
   },
