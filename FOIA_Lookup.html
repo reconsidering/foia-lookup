@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Federal FOIA Contact Lookup Tool</title>
+    <title>Federal & State FOIA Officer Lookup Tool</title>
     <style>
         :root {
             --primary: #003366;
@@ -37,6 +37,30 @@
             font-size: 24px;
             border-bottom: 2px solid var(--primary);
             padding-bottom: 10px;
+        }
+
+        .tab-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            background-color: #e0e0e0;
+            color: #333;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tab-btn.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
         }
 
         .status-banner {
@@ -74,7 +98,7 @@
             border-color: var(--primary);
         }
 
-        button {
+        .search-btn {
             padding: 12px 24px;
             background-color: var(--primary);
             color: white;
@@ -86,7 +110,7 @@
             transition: background 0.2s;
         }
 
-        button:hover {
+        .search-btn:hover {
             background-color: var(--primary-hover);
         }
 
@@ -119,9 +143,30 @@
         .suggestion-type {
             font-size: 11px;
             text-transform: uppercase;
-            color: #003366;
+            color: var(--primary);
             font-weight: bold;
             margin-left: 8px;
+        }
+
+        .state-info-box {
+            display: none;
+            background: #eef2f7;
+            border-left: 4px solid var(--primary);
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .state-statute-title {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 16px;
+        }
+
+        .state-statute-details {
+            font-size: 13px;
+            color: #444;
+            margin-top: 4px;
         }
 
         .output-section {
@@ -166,6 +211,11 @@
             padding: 6px 12px;
             font-size: 13px;
             background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
         }
 
         .copy-btn:hover {
@@ -206,17 +256,26 @@
 <body>
 
 <div class="container">
-    <h1>Federal FOIA Contact Lookup Tool</h1>
-    <p>Type a department or agency name (e.g., <em>Department of Justice</em>, <em>DHS</em>, <em>OPM</em>, <em>FBI</em>) to automatically populate all underlying component agencies and direct emails.</p>
+    <h1>Federal & State FOIA Officer Lookup Tool</h1>
+    
+    <div class="tab-container">
+        <button id="tabFederal" class="tab-btn active" onclick="switchTab('federal')">Federal FOIA</button>
+        <button id="tabState" class="tab-btn" onclick="switchTab('state')">State Public Records</button>
+    </div>
 
-    <div id="statusBanner" class="status-banner status-loading">Loading FOIA database...</div>
+    <div id="statusBanner" class="status-banner status-loading">Loading FOIA database files...</div>
 
     <div class="search-container">
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Type department or component name..." autocomplete="off">
-            <button onclick="executeSearch()">Search</button>
+            <input type="text" id="searchInput" placeholder="Type federal department or agency name..." autocomplete="off">
+            <button class="search-btn" onclick="executeSearch()">Search</button>
         </div>
         <div id="suggestionsDropdown" class="suggestions-dropdown"></div>
+    </div>
+
+    <div id="stateInfoBox" class="state-info-box">
+        <div id="stateStatuteName" class="state-statute-title"></div>
+        <div id="stateDetails" class="state-statute-details"></div>
     </div>
 
     <div id="outputSection" class="output-section">
@@ -242,232 +301,228 @@
 </div>
 
 <script>
-let currentTab = 'federal'; // 'federal' or 'state'
-let FOIA_DATABASE = [];
-let STATE_DATABASE = [];
+    let currentTab = 'federal';
+    let FOIA_DATABASE = [];
+    let STATE_DATABASE = [];
 
-window.addEventListener('DOMContentLoaded', () => {
-    initializeDatabase();
-    setupAutoSuggest();
-});
+    window.addEventListener('DOMContentLoaded', () => {
+        initializeDatabase();
+        setupAutoSuggest();
+    });
 
-async function initializeDatabase() {
-    const banner = document.getElementById('statusBanner');
-    
-    try {
-        // Fetch both federal and state JSON datasets concurrently
-        const [fedRes, stateRes] = await Promise.all([
-            fetch('./foia_data.json'),
-            fetch('./state_foia_data.json')
-        ]);
-
-        if (!fedRes.ok || !stateRes.ok) {
-            throw new Error('Failed to load local JSON files.');
-        }
-
-        FOIA_DATABASE = await fedRes.json();
-        STATE_DATABASE = await stateRes.json();
+    async function initializeDatabase() {
+        const banner = document.getElementById('statusBanner');
         
-        banner.className = 'status-banner status-success';
-        banner.innerText = `Database Active (${FOIA_DATABASE.length} Federal Departments & ${STATE_DATABASE.length} States Loaded)`;
+        try {
+            const [fedRes, stateRes] = await Promise.all([
+                fetch('./foia_data.json'),
+                fetch('./state_foia_data.json')
+            ]);
 
-    } catch (err) {
-        console.error('JSON fetch error:', err);
-        banner.className = 'status-banner status-warning';
-        banner.innerText = 'Unable to load dataset files. Verify foia_data.json and state_foia_data.json exist.';
+            if (!fedRes.ok || !stateRes.ok) {
+                throw new Error('Failed to load JSON database files.');
+            }
+
+            FOIA_DATABASE = await fedRes.json();
+            STATE_DATABASE = await stateRes.json();
+            
+            banner.className = 'status-banner status-success';
+            banner.innerText = `Databases Active (${FOIA_DATABASE.length} Federal Departments & ${STATE_DATABASE.length} States Loaded)`;
+
+        } catch (err) {
+            console.error('JSON fetch error:', err);
+            banner.className = 'status-banner status-warning';
+            banner.innerText = 'Unable to load dataset files. Ensure foia_data.json and state_foia_data.json exist in the same folder.';
+        }
     }
-}
 
-function switchTab(tab) {
-    currentTab = tab;
-    document.getElementById('tabFederal').classList.toggle('active', tab === 'federal');
-    document.getElementById('tabState').classList.toggle('active', tab === 'state');
-    
-    const input = document.getElementById('searchInput');
-    input.placeholder = tab === 'federal' 
-        ? 'Type federal department or agency name...' 
-        : 'Type state name (e.g., California, Florida, Virginia)...';
-    input.value = '';
-    
-    document.getElementById('outputSection').style.display = 'none';
-    document.getElementById('stateInfoBox').style.display = 'none';
-}
+    function switchTab(tab) {
+        currentTab = tab;
+        document.getElementById('tabFederal').classList.toggle('active', tab === 'federal');
+        document.getElementById('tabState').classList.toggle('active', tab === 'state');
+        
+        const input = document.getElementById('searchInput');
+        input.placeholder = tab === 'federal' 
+            ? 'Type federal department or agency name...' 
+            : 'Type state name (e.g., California, Texas, Virginia)...';
+        input.value = '';
+        
+        document.getElementById('outputSection').style.display = 'none';
+        document.getElementById('stateInfoBox').style.display = 'none';
+    }
 
-function setupAutoSuggest() {
-    const input = document.getElementById('searchInput');
-    const dropdown = document.getElementById('suggestionsDropdown');
+    function setupAutoSuggest() {
+        const input = document.getElementById('searchInput');
+        const dropdown = document.getElementById('suggestionsDropdown');
 
-    input.addEventListener('input', () => {
-        const query = input.value.trim().toLowerCase();
-        if (query.length < 1) {
-            dropdown.style.display = 'none';
+        input.addEventListener('input', () => {
+            const query = input.value.trim().toLowerCase();
+            if (query.length < 1) {
+                dropdown.style.display = 'none';
+                return;
+            }
+
+            const suggestions = [];
+
+            if (currentTab === 'federal') {
+                FOIA_DATABASE.forEach(dept => {
+                    if (dept.deptName.toLowerCase().includes(query) || (dept.deptAbbr && dept.deptAbbr.toLowerCase().includes(query))) {
+                        suggestions.push({ label: dept.deptName, abbr: dept.deptAbbr, type: `Federal Department (${dept.components.length} components)` });
+                    }
+                    dept.components.forEach(comp => {
+                        if (comp.title.toLowerCase().includes(query) || (comp.abbr && comp.abbr.toLowerCase().includes(query))) {
+                            suggestions.push({ label: comp.title, abbr: comp.abbr, type: `Component under ${dept.deptName}` });
+                        }
+                    });
+                });
+            } else {
+                STATE_DATABASE.forEach(st => {
+                    if (st.state.toLowerCase().includes(query)) {
+                        suggestions.push({ label: st.state, abbr: st.statute, type: `State (${st.agencies.length} primary agencies)` });
+                    }
+                    st.agencies.forEach(ag => {
+                        if (ag.title.toLowerCase().includes(query) || (ag.abbr && ag.abbr.toLowerCase().includes(query))) {
+                            suggestions.push({ label: ag.title, abbr: ag.abbr, type: `Agency in ${st.state}` });
+                        }
+                    });
+                });
+            }
+
+            const uniqueSuggestions = suggestions.filter((item, index, self) =>
+                index === self.findIndex((t) => t.label === item.label)
+            ).slice(0, 8);
+
+            if (uniqueSuggestions.length > 0) {
+                dropdown.innerHTML = uniqueSuggestions.map(s => `
+                    <div class="suggestion-item" onclick="selectSuggestion('${escapeJs(s.label)}')">
+                        <strong>${escapeHtml(s.label)}</strong> ${s.abbr ? '(' + escapeHtml(s.abbr) + ')' : ''}
+                        <span class="suggestion-type">${escapeHtml(s.type)}</span>
+                    </div>
+                `).join('');
+                dropdown.style.display = 'block';
+            } else {
+                dropdown.style.display = 'none';
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!input.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.style.display = 'none';
+            }
+        });
+
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                dropdown.style.display = 'none';
+                executeSearch();
+            }
+        });
+    }
+
+    function selectSuggestion(name) {
+        document.getElementById('searchInput').value = name;
+        document.getElementById('suggestionsDropdown').style.display = 'none';
+        executeSearch();
+    }
+
+    function executeSearch() {
+        const query = document.getElementById('searchInput').value.trim().toLowerCase();
+        const outputEl = document.getElementById('outputSection');
+        const resultsHeader = document.getElementById('resultsHeader');
+        const resultsList = document.getElementById('resultsList');
+        const stateInfoBox = document.getElementById('stateInfoBox');
+
+        if (!query) {
+            alert('Please enter a query.');
             return;
         }
 
-        const suggestions = [];
+        resultsList.innerHTML = '';
+        stateInfoBox.style.display = 'none';
+        
+        let matchedItems = [];
+        let allEmails = [];
 
         if (currentTab === 'federal') {
-            FOIA_DATABASE.forEach(dept => {
-                if (dept.deptName.toLowerCase().includes(query) || (dept.deptAbbr && dept.deptAbbr.toLowerCase().includes(query))) {
-                    suggestions.push({ label: dept.deptName, abbr: dept.deptAbbr, type: `Federal Department (${dept.components.length} components)` });
-                }
-                dept.components.forEach(comp => {
-                    if (comp.title.toLowerCase().includes(query) || (comp.abbr && comp.abbr.toLowerCase().includes(query))) {
-                        suggestions.push({ label: comp.title, abbr: comp.abbr, type: `Component under ${dept.deptName}` });
-                    }
+            const matchedDept = FOIA_DATABASE.find(d => 
+                d.deptName.toLowerCase().includes(query) || (d.deptAbbr && d.deptAbbr.toLowerCase() === query)
+            );
+
+            if (matchedDept) {
+                resultsHeader.innerText = `${matchedDept.deptName} (${matchedDept.components.length} Component Agencies Found)`;
+                matchedItems = matchedDept.components.map(c => ({ ...c, parent: matchedDept.deptName }));
+            } else {
+                FOIA_DATABASE.forEach(d => {
+                    d.components.forEach(c => {
+                        if (c.title.toLowerCase().includes(query) || (c.abbr && c.abbr.toLowerCase() === query)) {
+                            matchedItems.push({ ...c, parent: d.deptName });
+                        }
+                    });
                 });
+                resultsHeader.innerText = `Matching Components for "${query}"`;
+            }
+        } else {
+            const matchedState = STATE_DATABASE.find(s => s.state.toLowerCase().includes(query));
+
+            if (matchedState) {
+                document.getElementById('stateStatuteName').innerText = `${matchedState.state}: ${matchedState.statute}`;
+                document.getElementById('stateDetails').innerText = `Citation: ${matchedState.citation} | Statutory Response Limit: ${matchedState.response_days} | Mandatory State Residency Required: ${matchedState.residency_required ? 'YES' : 'NO'}`;
+                stateInfoBox.style.display = 'block';
+
+                resultsHeader.innerText = `Primary State Agencies in ${matchedState.state} (${matchedState.agencies.length} found)`;
+                matchedItems = matchedState.agencies.map(a => ({ ...a, parent: matchedState.state }));
+            } else {
+                STATE_DATABASE.forEach(s => {
+                    s.agencies.forEach(a => {
+                        if (a.title.toLowerCase().includes(query) || (a.abbr && a.abbr.toLowerCase() === query)) {
+                            matchedItems.push({ ...a, parent: s.state });
+                        }
+                    });
+                });
+                resultsHeader.innerText = `Matching State Agencies for "${query}"`;
+            }
+        }
+
+        if (matchedItems.length > 0) {
+            matchedItems.forEach(m => {
+                m.emails.forEach(e => allEmails.push(e));
+                
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div class="card-title">${escapeHtml(m.title)} ${m.abbr ? '(' + escapeHtml(m.abbr) + ')' : ''}</div>
+                    <div class="card-detail"><strong>Jurisdiction / Parent:</strong> ${escapeHtml(m.parent)}</div>
+                    <div class="card-detail"><strong>Phone:</strong> ${escapeHtml(m.phone)}</div>
+                    <div class="card-detail"><strong>Public Records Email:</strong> ${m.emails.length > 0 ? escapeHtml(m.emails.join(', ')) : '<em>None listed (Portal submission required)</em>'}</div>
+                `;
+                resultsList.appendChild(card);
             });
         } else {
-            // State search auto-suggestions
-            STATE_DATABASE.forEach(st => {
-                if (st.state.toLowerCase().includes(query)) {
-                    suggestions.push({ label: st.state, abbr: st.statute, type: `State (${st.agencies.length} primary agencies)` });
-                }
-                st.agencies.forEach(ag => {
-                    if (ag.title.toLowerCase().includes(query) || (ag.abbr && ag.abbr.toLowerCase().includes(query))) {
-                        suggestions.push({ label: ag.title, abbr: ag.abbr, type: `Agency in ${st.state}` });
-                    }
-                });
-            });
+            resultsHeader.innerText = `No records found`;
+            resultsList.innerHTML = `<p>No records found matching "${escapeHtml(query)}".</p>`;
         }
 
-        const uniqueSuggestions = suggestions.filter((item, index, self) =>
-            index === self.findIndex((t) => t.label === item.label)
-        ).slice(0, 8);
+        const uniqueEmails = [...new Set(allEmails)];
+        document.getElementById('commaEmails').value = uniqueEmails.join(', ');
+        document.getElementById('semicolonEmails').value = uniqueEmails.join('; ');
 
-        if (uniqueSuggestions.length > 0) {
-            dropdown.innerHTML = uniqueSuggestions.map(s => `
-                <div class="suggestion-item" onclick="selectSuggestion('${escapeJs(s.label)}')">
-                    <strong>${escapeHtml(s.label)}</strong> ${s.abbr ? '(' + escapeHtml(s.abbr) + ')' : ''}
-                    <span class="suggestion-type">${escapeHtml(s.type)}</span>
-                </div>
-            `).join('');
-            dropdown.style.display = 'block';
-        } else {
-            dropdown.style.display = 'none';
-        }
-    });
-
-    document.addEventListener('click', (e) => {
-        if (!input.contains(e.target) && !dropdown.contains(e.target)) {
-            dropdown.style.display = 'none';
-        }
-    });
-
-    input.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            dropdown.style.display = 'none';
-            executeSearch();
-        }
-    });
-}
-
-function selectSuggestion(name) {
-    document.getElementById('searchInput').value = name;
-    document.getElementById('suggestionsDropdown').style.display = 'none';
-    executeSearch();
-}
-
-function executeSearch() {
-    const query = document.getElementById('searchInput').value.trim().toLowerCase();
-    const outputEl = document.getElementById('outputSection');
-    const resultsHeader = document.getElementById('resultsHeader');
-    const resultsList = document.getElementById('resultsList');
-    const stateInfoBox = document.getElementById('stateInfoBox');
-
-    if (!query) {
-        alert('Please enter a query.');
-        return;
+        outputEl.style.display = 'block';
     }
 
-    resultsList.innerHTML = '';
-    stateInfoBox.style.display = 'none';
-    
-    let matchedItems = [];
-    let allEmails = [];
-
-    if (currentTab === 'federal') {
-        const matchedDept = FOIA_DATABASE.find(d => 
-            d.deptName.toLowerCase().includes(query) || (d.deptAbbr && d.deptAbbr.toLowerCase() === query)
-        );
-
-        if (matchedDept) {
-            resultsHeader.innerText = `${matchedDept.deptName} (${matchedDept.components.length} Component Agencies)`;
-            matchedItems = matchedDept.components.map(c => ({ ...c, parent: matchedDept.deptName }));
-        } else {
-            FOIA_DATABASE.forEach(d => {
-                d.components.forEach(c => {
-                    if (c.title.toLowerCase().includes(query) || (c.abbr && c.abbr.toLowerCase() === query)) {
-                        matchedItems.push({ ...c, parent: d.deptName });
-                    }
-                });
-            });
-            resultsHeader.innerText = `Matching Components for "${query}"`;
-        }
-    } else {
-        // State Search Execution
-        const matchedState = STATE_DATABASE.find(s => s.state.toLowerCase().includes(query));
-
-        if (matchedState) {
-            // Render State Statute Details Header
-            document.getElementById('stateStatuteName').innerText = `${matchedState.state}: ${matchedState.statute}`;
-            document.getElementById('stateDetails').innerText = `Citation: ${matchedState.citation} | Statutory Response Limit: ${matchedState.response_days} | Mandatory State Residency Required: ${matchedState.residency_required ? 'YES' : 'NO'}`;
-            stateInfoBox.style.display = 'block';
-
-            resultsHeader.innerText = `Primary State Agencies in ${matchedState.state} (${matchedState.agencies.length} found)`;
-            matchedItems = matchedState.agencies.map(a => ({ ...a, parent: matchedState.state }));
-        } else {
-            STATE_DATABASE.forEach(s => {
-                s.agencies.forEach(a => {
-                    if (a.title.toLowerCase().includes(query) || (a.abbr && a.abbr.toLowerCase() === query)) {
-                        matchedItems.push({ ...a, parent: s.state });
-                    }
-                });
-            });
-            resultsHeader.innerText = `Matching State Agencies for "${query}"`;
-        }
+    function copyToClipboard(elementId) {
+        const textarea = document.getElementById(elementId);
+        textarea.select();
+        document.execCommand('copy');
+        alert('Copied to clipboard!');
     }
 
-    if (matchedItems.length > 0) {
-        matchedItems.forEach(m => {
-            m.emails.forEach(e => allEmails.push(e));
-            
-            const card = document.createElement('div');
-            card.className = 'card';
-            card.innerHTML = `
-                <div class="card-title">${escapeHtml(m.title)} ${m.abbr ? '(' + escapeHtml(m.abbr) + ')' : ''}</div>
-                <div class="card-detail"><strong>Jurisdiction / Parent:</strong> ${escapeHtml(m.parent)}</div>
-                <div class="card-detail"><strong>Phone:</strong> ${escapeHtml(m.phone)}</div>
-                <div class="card-detail"><strong>Public Records Email:</strong> ${m.emails.length > 0 ? escapeHtml(m.emails.join(', ')) : '<em>None listed (Portal submission required)</em>'}</div>
-            `;
-            resultsList.appendChild(card);
-        });
-    } else {
-        resultsHeader.innerText = `No records found`;
-        resultsList.innerHTML = `<p>No records found matching "${escapeHtml(query)}".</p>`;
+    function escapeHtml(str) {
+        return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
     }
 
-    const uniqueEmails = [...new Set(allEmails)];
-    document.getElementById('commaEmails').value = uniqueEmails.join(', ');
-    document.getElementById('semicolonEmails').value = uniqueEmails.join('; ');
-
-    outputEl.style.display = 'block';
-}
-
-function copyToClipboard(elementId) {
-    const textarea = document.getElementById(elementId);
-    textarea.select();
-    document.execCommand('copy');
-    alert('Copied to clipboard!');
-}
-
-function escapeHtml(str) {
-    return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-}
-
-function escapeJs(str) {
-    return str.replace(/'/g, "\\'").replace(/"/g, '\\"');
-}
+    function escapeJs(str) {
+        return str.replace(/'/g, "\\'").replace(/"/g, '\\"');
+    }
 </script>
 
 </body>
