@@ -29,6 +29,18 @@
         "abbr": "ADEM",
         "phone": "(334) 271-7700",
         "emails": ["permitsrecords@adem.alabama.gov"]
+      },
+      {
+        "title": "Alabama Department of Corrections",
+        "abbr": "ADOC",
+        "phone": "(334) 353-3883",
+        "emails": ["public.information@doc.alabama.gov"]
+      },
+      {
+        "title": "Alabama Department of Public Health",
+        "abbr": "ADPH",
+        "phone": "(334) 206-5300",
+        "emails": ["healthinfo@adph.state.al.us"]
       }
     ]
   },
@@ -62,6 +74,12 @@
         "abbr": "DEC",
         "phone": "(907) 465-5066",
         "emails": ["dec.publicrecords@alaska.gov"]
+      },
+      {
+        "title": "Alaska Department of Corrections",
+        "abbr": "DOC",
+        "phone": "(907) 269-7397",
+        "emails": ["doc.publicrecords@alaska.gov"]
       }
     ]
   },
@@ -95,6 +113,18 @@
         "abbr": "ADEQ",
         "phone": "(602) 771-2300",
         "emails": ["records@azdeq.gov"]
+      },
+      {
+        "title": "Arizona Department of Corrections, Rehabilitation & Reentry",
+        "abbr": "ADCRR",
+        "phone": "(602) 542-5886",
+        "emails": ["publicrecords@azcorrections.gov"]
+      },
+      {
+        "title": "Arizona Department of Health Services",
+        "abbr": "ADHS",
+        "phone": "(602) 542-1025",
+        "emails": ["publicrecords@azdhs.gov"]
       }
     ]
   },
@@ -128,6 +158,12 @@
         "abbr": "DEQ",
         "phone": "(501) 682-0744",
         "emails": ["foia@adeq.state.ar.us"]
+      },
+      {
+        "title": "Arkansas Department of Corrections",
+        "abbr": "DOC",
+        "phone": "(870) 267-6200",
+        "emails": ["doc.foia@arkansas.gov"]
       }
     ]
   },
@@ -236,6 +272,12 @@
         "abbr": "CDPHE",
         "phone": "(303) 692-2000",
         "emails": ["cdphe_cora@state.co.us"]
+      },
+      {
+        "title": "Colorado Department of Corrections",
+        "abbr": "DOC",
+        "phone": "(719) 269-4000",
+        "emails": ["doc_cora@state.co.us"]
       }
     ]
   },
@@ -269,6 +311,12 @@
         "abbr": "DEEP",
         "phone": "(860) 424-3000",
         "emails": ["deep.foia@ct.gov"]
+      },
+      {
+        "title": "Connecticut Department of Correction",
+        "abbr": "DOC",
+        "phone": "(860) 692-7780",
+        "emails": ["doc.foi@ct.gov"]
       }
     ]
   },
@@ -302,6 +350,12 @@
         "abbr": "DNREC",
         "phone": "(302) 739-9000",
         "emails": ["dnrec_foia@delaware.gov"]
+      },
+      {
+        "title": "Delaware Department of Correction",
+        "abbr": "DOC",
+        "phone": "(302) 739-5601",
+        "emails": ["doc_foia@delaware.gov"]
       }
     ]
   },
@@ -485,6 +539,18 @@
         "abbr": "EPD",
         "phone": "(404) 657-5947",
         "emails": ["epd.openrecords@dnr.ga.gov"]
+      },
+      {
+        "title": "Georgia Department of Corrections",
+        "abbr": "GDC",
+        "phone": "(478) 992-5261",
+        "emails": ["open.records@gdc.ga.gov"]
+      },
+      {
+        "title": "Georgia Department of Public Health",
+        "abbr": "DPH",
+        "phone": "(404) 657-2700",
+        "emails": ["dph.openrecords@dph.ga.gov"]
       }
     ]
   },
@@ -518,6 +584,12 @@
         "abbr": "DOH",
         "phone": "(808) 586-4400",
         "emails": ["doh.uipa@doh.hawaii.gov"]
+      },
+      {
+        "title": "Hawaii Department of Corrections and Rehabilitation",
+        "abbr": "DCR",
+        "phone": "(808) 587-1288",
+        "emails": ["dcr.uipa@hawaii.gov"]
       }
     ]
   },
@@ -551,6 +623,12 @@
         "abbr": "DEQ",
         "phone": "(208) 373-0502",
         "emails": ["deq.publicrecords@deq.idaho.gov"]
+      },
+      {
+        "title": "Idaho Department of Correction",
+        "abbr": "IDOC",
+        "phone": "(208) 658-2000",
+        "emails": ["publicrecords@idoc.idaho.gov"]
       }
     ]
   },
@@ -574,6 +652,12 @@
         "emails": ["isp.foia@illinois.gov"]
       },
       {
+        "title": "Illinois Department of Corrections",
+        "abbr": "IDOC",
+        "phone": "(217) 558-2200",
+        "emails": ["doc.foiarequest@doc.illinois.gov"]
+      },
+      {
         "title": "Illinois Department of Transportation",
         "abbr": "IDOT",
         "phone": "(217) 782-7820",
@@ -584,6 +668,18 @@
         "abbr": "IEPA",
         "phone": "(217) 782-3397",
         "emails": ["epa.foia@illinois.gov"]
+      },
+      {
+        "title": "Illinois Department of Public Health",
+        "abbr": "IDPH",
+        "phone": "(217) 782-4977",
+        "emails": ["dph.foia@illinois.gov"]
+      },
+      {
+        "title": "Illinois Department of Human Services",
+        "abbr": "IDHS",
+        "phone": "(217) 557-1601",
+        "emails": ["dhs.foiaofficer@illinois.gov"]
       }
     ]
   },
@@ -617,6 +713,12 @@
         "abbr": "IDEM",
         "phone": "(317) 232-8603",
         "emails": ["idempublicrecords@idem.in.gov"]
+      },
+      {
+        "title": "Indiana Department of Correction",
+        "abbr": "IDOC",
+        "phone": "(317) 232-5711",
+        "emails": ["media@idoc.in.gov"]
       }
     ]
   },
@@ -650,6 +752,12 @@
         "abbr": "DNR",
         "phone": "(515) 725-8200",
         "emails": ["dnr.records@dnr.iowa.gov"]
+      },
+      {
+        "title": "Iowa Department of Corrections",
+        "abbr": "DOC",
+        "phone": "(515) 725-5701",
+        "emails": ["doc.information@iowa.gov"]
       }
     ]
   },
@@ -683,6 +791,12 @@
         "abbr": "KDHE",
         "phone": "(785) 296-1500",
         "emails": ["kdhe.kora@ks.gov"]
+      },
+      {
+        "title": "Kansas Department of Corrections",
+        "abbr": "KDOC",
+        "phone": "(785) 296-3317",
+        "emails": ["kdoc_kora@ks.gov"]
       }
     ]
   },
@@ -716,6 +830,12 @@
         "abbr": "EEC",
         "phone": "(502) 564-3350",
         "emails": ["eec.openrecords@ky.gov"]
+      },
+      {
+        "title": "Kentucky Department of Corrections",
+        "abbr": "DOC",
+        "phone": "(502) 564-4726",
+        "emails": ["doc.openrecords@ky.gov"]
       }
     ]
   },
@@ -749,6 +869,12 @@
         "abbr": "LDEQ",
         "phone": "(225) 219-5337",
         "emails": ["deqpublicrecords@la.gov"]
+      },
+      {
+        "title": "Louisiana Department of Public Safety & Corrections",
+        "abbr": "DOC",
+        "phone": "(225) 342-6740",
+        "emails": ["docpublicrecords@la.gov"]
       }
     ]
   },
@@ -782,6 +908,12 @@
         "abbr": "DEP",
         "phone": "(207) 287-7688",
         "emails": ["dep.foaa@maine.gov"]
+      },
+      {
+        "title": "Maine Department of Corrections",
+        "abbr": "DOC",
+        "phone": "(207) 287-2711",
+        "emails": ["doc.foaa@maine.gov"]
       }
     ]
   },
@@ -815,6 +947,18 @@
         "abbr": "MDE",
         "phone": "(410) 537-3000",
         "emails": ["mde.pia@maryland.gov"]
+      },
+      {
+        "title": "Maryland Department of Public Safety & Correctional Services",
+        "abbr": "DPSCS",
+        "phone": "(410) 339-3760",
+        "emails": ["pia.dpscs@maryland.gov"]
+      },
+      {
+        "title": "Maryland Department of Health",
+        "abbr": "MDH",
+        "phone": "(410) 767-6500",
+        "emails": ["mdh.pia@maryland.gov"]
       }
     ]
   },
@@ -848,6 +992,18 @@
         "abbr": "MassDEP",
         "phone": "(617) 292-5500",
         "emails": ["dep.pra@mass.gov"]
+      },
+      {
+        "title": "Massachusetts Department of Correction",
+        "abbr": "DOC",
+        "phone": "(508) 422-3300",
+        "emails": ["doc.publicrecords@mass.gov"]
+      },
+      {
+        "title": "Massachusetts Department of Public Health",
+        "abbr": "DPH",
+        "phone": "(617) 624-6000",
+        "emails": ["dph.publicrecords@mass.gov"]
       }
     ]
   },
@@ -871,6 +1027,12 @@
         "emails": ["msp-foia@michigan.gov"]
       },
       {
+        "title": "Michigan Department of Corrections",
+        "abbr": "MDOC",
+        "phone": "(517) 335-1426",
+        "emails": ["mdoc-foia@michigan.gov"]
+      },
+      {
         "title": "Michigan Department of Transportation",
         "abbr": "MDOT",
         "phone": "(517) 335-4381",
@@ -881,6 +1043,12 @@
         "abbr": "EGLE",
         "phone": "(517) 284-5000",
         "emails": ["egle-foia@michigan.gov"]
+      },
+      {
+        "title": "Michigan Department of Health and Human Services",
+        "abbr": "MDHHS",
+        "phone": "(517) 241-3740",
+        "emails": ["mdhhs-foia@michigan.gov"]
       }
     ]
   },
@@ -914,6 +1082,12 @@
         "abbr": "MPCA",
         "phone": "(651) 296-6300",
         "emails": ["data.mpca@state.mn.us"]
+      },
+      {
+        "title": "Minnesota Department of Corrections",
+        "abbr": "MNDOC",
+        "phone": "(651) 361-7200",
+        "emails": ["doc.datapractices@state.mn.us"]
       }
     ]
   },
@@ -947,6 +1121,12 @@
         "abbr": "MDEQ",
         "phone": "(601) 961-5171",
         "emails": ["public_records@mdeq.ms.gov"]
+      },
+      {
+        "title": "Mississippi Department of Corrections",
+        "abbr": "MDOC",
+        "phone": "(601) 359-5600",
+        "emails": ["mdoctoppr@mdoc.state.ms.us"]
       }
     ]
   },
@@ -980,6 +1160,12 @@
         "abbr": "DNR",
         "phone": "(573) 751-3443",
         "emails": ["sunshine@dnr.mo.gov"]
+      },
+      {
+        "title": "Missouri Department of Corrections",
+        "abbr": "DOC",
+        "phone": "(573) 751-2389",
+        "emails": ["doc.sunshinelaw@doc.mo.gov"]
       }
     ]
   },
@@ -1013,6 +1199,12 @@
         "abbr": "DEQ",
         "phone": "(406) 444-2544",
         "emails": ["deqpublicrecords@mt.gov"]
+      },
+      {
+        "title": "Montana Department of Corrections",
+        "abbr": "DOC",
+        "phone": "(406) 444-3930",
+        "emails": ["corpublicrecords@mt.gov"]
       }
     ]
   },
@@ -1046,6 +1238,12 @@
         "abbr": "NDEE",
         "phone": "(402) 471-2186",
         "emails": ["ndee.publicrecords@nebraska.gov"]
+      },
+      {
+        "title": "Nebraska Department of Correctional Services",
+        "abbr": "NDCS",
+        "phone": "(402) 471-2654",
+        "emails": ["ndcs.publicrecords@nebraska.gov"]
       }
     ]
   },
@@ -1079,6 +1277,12 @@
         "abbr": "NDEP",
         "phone": "(775) 687-4670",
         "emails": ["ndeppublicrecords@ndep.nv.gov"]
+      },
+      {
+        "title": "Nevada Department of Corrections",
+        "abbr": "NDOC",
+        "phone": "(775) 887-3285",
+        "emails": ["ndocpublicrecords@doc.nv.gov"]
       }
     ]
   },
@@ -1112,6 +1316,12 @@
         "abbr": "NHDES",
         "phone": "(603) 271-3503",
         "emails": ["puc.desfoia@des.nh.gov"]
+      },
+      {
+        "title": "New Hampshire Department of Corrections",
+        "abbr": "NHDOC",
+        "phone": "(603) 271-5600",
+        "emails": ["info@doc.nh.gov"]
       }
     ]
   },
@@ -1145,6 +1355,18 @@
         "abbr": "NJDEP",
         "phone": "(609) 777-3373",
         "emails": ["opra.requests@dep.nj.gov"]
+      },
+      {
+        "title": "New Jersey Department of Corrections",
+        "abbr": "NJDOC",
+        "phone": "(609) 292-4036",
+        "emails": ["doc.opra@doc.nj.gov"]
+      },
+      {
+        "title": "New Jersey Department of Health",
+        "abbr": "NJDOH",
+        "phone": "(609) 292-7837",
+        "emails": ["doh.opra@doh.nj.gov"]
       }
     ]
   },
@@ -1178,6 +1400,12 @@
         "abbr": "NMED",
         "phone": "(505) 827-2855",
         "emails": ["nmed.ipra@state.nm.us"]
+      },
+      {
+        "title": "New Mexico Corrections Department",
+        "abbr": "NMCD",
+        "phone": "(505) 827-8600",
+        "emails": ["cd.ipra@state.nm.us"]
       }
     ]
   },
@@ -1280,6 +1508,18 @@
         "abbr": "NCDEQ",
         "phone": "(877) 623-6748",
         "emails": ["publicrecords@deq.nc.gov"]
+      },
+      {
+        "title": "North Carolina Department of Adult Correction",
+        "abbr": "DAC",
+        "phone": "(919) 733-2126",
+        "emails": ["publicrecords@dac.nc.gov"]
+      },
+      {
+        "title": "North Carolina Department of Health and Human Services",
+        "abbr": "NCDHHS",
+        "phone": "(919) 855-4800",
+        "emails": ["publicrecords@dhhs.nc.gov"]
       }
     ]
   },
@@ -1313,6 +1553,12 @@
         "abbr": "NDDEQ",
         "phone": "(701) 328-5150",
         "emails": ["deq@nd.gov"]
+      },
+      {
+        "title": "North Dakota Department of Corrections and Rehabilitation",
+        "abbr": "DOCR",
+        "phone": "(701) 328-6390",
+        "emails": ["docr@nd.gov"]
       }
     ]
   },
@@ -1336,6 +1582,12 @@
         "emails": ["publicrecords@dps.ohio.gov"]
       },
       {
+        "title": "Ohio Department of Rehabilitation and Correction",
+        "abbr": "ODRC",
+        "phone": "(614) 752-1159",
+        "emails": ["drc.personnel@drc.ohio.gov"]
+      },
+      {
         "title": "Ohio Department of Transportation",
         "abbr": "ODOT",
         "phone": "(614) 466-7170",
@@ -1346,6 +1598,12 @@
         "abbr": "Ohio EPA",
         "phone": "(614) 644-3020",
         "emails": ["publicrecords@epa.ohio.gov"]
+      },
+      {
+        "title": "Ohio Department of Health",
+        "abbr": "ODH",
+        "phone": "(614) 466-3543",
+        "emails": ["odh.publicrecords@odh.ohio.gov"]
       }
     ]
   },
@@ -1379,6 +1637,12 @@
         "abbr": "DEQ",
         "phone": "(405) 702-0100",
         "emails": ["deqopenrecords@deq.ok.gov"]
+      },
+      {
+        "title": "Oklahoma Department of Corrections",
+        "abbr": "DOC",
+        "phone": "(405) 425-2500",
+        "emails": ["open.records@doc.ok.gov"]
       }
     ]
   },
@@ -1412,6 +1676,18 @@
         "abbr": "DEQ",
         "phone": "(503) 229-5696",
         "emails": ["deq.publicrecords@deq.oregon.gov"]
+      },
+      {
+        "title": "Oregon Department of Corrections",
+        "abbr": "DOC",
+        "phone": "(503) 945-9090",
+        "emails": ["doc.publicrecords@doc.oregon.gov"]
+      },
+      {
+        "title": "Oregon Health Authority",
+        "abbr": "OHA",
+        "phone": "(503) 947-2340",
+        "emails": ["oha.publicrecords@oha.oregon.gov"]
       }
     ]
   },
@@ -1435,6 +1711,12 @@
         "emails": ["ra-psprtko@pa.gov"]
       },
       {
+        "title": "Pennsylvania Department of Corrections",
+        "abbr": "PADOC",
+        "phone": "(717) 728-7763",
+        "emails": ["ra-docrighttoknow@pa.gov"]
+      },
+      {
         "title": "Pennsylvania Department of Transportation",
         "abbr": "PennDOT",
         "phone": "(717) 787-2838",
@@ -1445,6 +1727,18 @@
         "abbr": "DEP",
         "phone": "(717) 787-7193",
         "emails": ["ra-eprtk@pa.gov"]
+      },
+      {
+        "title": "Pennsylvania Department of Health",
+        "abbr": "DOH",
+        "phone": "(717) 787-6436",
+        "emails": ["ra-dhrtkl@pa.gov"]
+      },
+      {
+        "title": "Pennsylvania Department of Human Services",
+        "abbr": "DHS",
+        "phone": "(717) 787-3438",
+        "emails": ["ra-dhsrtkl@pa.gov"]
       }
     ]
   },
@@ -1478,6 +1772,12 @@
         "abbr": "RIDEM",
         "phone": "(401) 222-6800",
         "emails": ["dem.apra@dem.ri.gov"]
+      },
+      {
+        "title": "Rhode Island Department of Corrections",
+        "abbr": "RIDOC",
+        "phone": "(401) 462-1000",
+        "emails": ["doc.apra@doc.ri.gov"]
       }
     ]
   },
@@ -1511,6 +1811,12 @@
         "abbr": "SCDES",
         "phone": "(803) 898-3432",
         "emails": ["foia@des.sc.gov"]
+      },
+      {
+        "title": "South Carolina Department of Corrections",
+        "abbr": "SCDC",
+        "phone": "(803) 896-8500",
+        "emails": ["foia@doc.sc.gov"]
       }
     ]
   },
@@ -1544,6 +1850,12 @@
         "abbr": "DANR",
         "phone": "(605) 773-3151",
         "emails": ["danrinfo@state.sd.us"]
+      },
+      {
+        "title": "South Dakota Department of Corrections",
+        "abbr": "DOC",
+        "phone": "(605) 773-3478",
+        "emails": ["doc@state.sd.us"]
       }
     ]
   },
@@ -1577,6 +1889,18 @@
         "abbr": "TDEC",
         "phone": "(888) 891-8332",
         "emails": ["tdec.publicrecords@tn.gov"]
+      },
+      {
+        "title": "Tennessee Department of Correction",
+        "abbr": "TDOC",
+        "phone": "(615) 741-1000",
+        "emails": ["tdoc.publicrecords@tn.gov"]
+      },
+      {
+        "title": "Tennessee Department of Health",
+        "abbr": "TDH",
+        "phone": "(615) 741-3111",
+        "emails": ["tn.health.publicrecords@tn.gov"]
       }
     ]
   },
@@ -1679,6 +2003,12 @@
         "abbr": "UDEQ",
         "phone": "(801) 536-4400",
         "emails": ["deqgrama@utah.gov"]
+      },
+      {
+        "title": "Utah Department of Corrections",
+        "abbr": "UDC",
+        "phone": "(801) 545-5500",
+        "emails": ["correctionsgrama@utah.gov"]
       }
     ]
   },
@@ -1712,6 +2042,12 @@
         "abbr": "ANR",
         "phone": "(802) 828-1294",
         "emails": ["anr.publicrecords@vermont.gov"]
+      },
+      {
+        "title": "Vermont Department of Corrections",
+        "abbr": "DOC",
+        "phone": "(802) 241-2442",
+        "emails": ["doc.publicrecords@vermont.gov"]
       }
     ]
   },
@@ -1745,6 +2081,18 @@
         "abbr": "DEQ",
         "phone": "(804) 698-4000",
         "emails": ["foia@deq.virginia.gov"]
+      },
+      {
+        "title": "Virginia Department of Corrections",
+        "abbr": "VADOC",
+        "phone": "(804) 674-3000",
+        "emails": ["foia@vadoc.virginia.gov"]
+      },
+      {
+        "title": "Virginia Department of Health",
+        "abbr": "VDH",
+        "phone": "(804) 864-7000",
+        "emails": ["vdhfoia@vdh.virginia.gov"]
       }
     ]
   },
@@ -1778,6 +2126,18 @@
         "abbr": "Ecology",
         "phone": "(360) 407-6000",
         "emails": ["recordsofficer@ecy.wa.gov"]
+      },
+      {
+        "title": "Washington Department of Corrections",
+        "abbr": "DOC",
+        "phone": "(360) 725-8213",
+        "emails": ["publicrecords@doc1.wa.gov"]
+      },
+      {
+        "title": "Washington State Department of Health",
+        "abbr": "DOH",
+        "phone": "(360) 236-4838",
+        "emails": ["pdr@doh.wa.gov"]
       }
     ]
   },
@@ -1811,6 +2171,12 @@
         "abbr": "WVDEP",
         "phone": "(304) 926-0440",
         "emails": ["depfoia@wv.gov"]
+      },
+      {
+        "title": "West Virginia Division of Corrections and Rehabilitation",
+        "abbr": "DCR",
+        "phone": "(304) 558-2036",
+        "emails": ["dcr.foia@wv.gov"]
       }
     ]
   },
@@ -1844,6 +2210,12 @@
         "abbr": "DHS",
         "phone": "(608) 266-1865",
         "emails": ["dhsmedialine@dhs.wisconsin.gov"]
+      },
+      {
+        "title": "Wisconsin Department of Corrections",
+        "abbr": "DOC",
+        "phone": "(608) 240-5000",
+        "emails": ["docpublicrecords@wisconsin.gov"]
       }
     ]
   },
@@ -1877,6 +2249,12 @@
         "abbr": "DEQ",
         "phone": "(307) 777-7937",
         "emails": ["deq.publicrecords@wyo.gov"]
+      },
+      {
+        "title": "Wyoming Department of Corrections",
+        "abbr": "DOC",
+        "phone": "(307) 777-7208",
+        "emails": ["doc.publicrecords@wyo.gov"]
       }
     ]
   }
