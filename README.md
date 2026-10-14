@@ -11,7 +11,7 @@ A lightweight, single-page web application designed to help journalists, researc
 - **Instant Email Block Generators:** Generates clean, de-duplicated email lists in both comma-separated (Gmail/Webmail) and semicolon-separated (Outlook) formats with single-click copying.
 - **Auto-Suggest Search:** Type ahead to instantly match full department names, sub-components, or standard acronyms (e.g., *OPM*, *FBI*, *CPRA*).
 - **Statute Guidance:** Selecting a state displays key legal metadata, including statute citations, response timeframes, and residency requirement warnings.
-- **Zero Dependencies:** Pure client-side HTML, CSS, and vanilla JavaScript—runs instantly in any browser without build tools or external server requirements.
+- **Zero Dependencies:** Pure client-side HTML, CSS, and vanilla JavaScript—runs instantly in any browser without build tools. Serve the files over HTTP so the browser can load the JSON databases.
 
 ---
 
@@ -20,5 +20,18 @@ A lightweight, single-page web application designed to help journalists, researc
 ```text
 ├── FOIA_Lookup.html       # The main single-page web application
 ├── foia_data.json         # Federal department & component FOIA directory
-├── state_foia_data.json   # 50-State public records directory & statute metadata
+├── state_foia_data.json   # 50-State and D.C. public records directory & statute metadata
 └── README.md              # Project documentation
+```
+
+## Run locally
+
+Keep all three app files in the same folder. With Python installed, run:
+
+```sh
+python -m http.server 8000
+```
+
+Open http://localhost:8000/FOIA_Lookup.html. Opening the HTML directly with a `file://` URL may block JSON loading. Each database loads independently; a failed database displays a loading error when its tab is selected.
+
+The bundled contacts and statute summaries have no source URLs or verification dates. Confirm details with the relevant agency before relying on them.
