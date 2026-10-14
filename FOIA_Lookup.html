@@ -87,6 +87,7 @@
 
         input[type="text"] {
             flex: 1;
+            min-width: 0;
             padding: 12px;
             font-size: 16px;
             border: 1px solid var(--border);
@@ -263,11 +264,11 @@
         <button id="tabState" class="tab-btn" onclick="switchTab('state')">State & D.C. Public Records</button>
     </div>
 
-    <div id="statusBanner" class="status-banner status-loading">Loading FOIA database files...</div>
+    <div id="statusBanner" role="status" class="status-banner status-loading">Loading FOIA database files...</div>
 
     <div class="search-container">
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Type federal department or agency name..." autocomplete="off">
+            <input type="text" id="searchInput" aria-label="Search departments and agencies" placeholder="Type federal department or agency name..." autocomplete="off">
             <button class="search-btn" onclick="executeSearch()">Search</button>
         </div>
         <div id="suggestionsDropdown" class="suggestions-dropdown"></div>
@@ -305,4 +306,174 @@
     let FOIA_DATABASE = [];
     let STATE_DATABASE = [];
 
-    window.
+
+    const input = document.getElementById('searchInput');
+    const dropdown = document.getElementById('suggestionsDropdown');
+    const banner = document.getElementById('statusBanner');
+    const loadErrors = {};
+
+    function normalize(value) {
+        return String(value || '').trim().toLowerCase();
+    }
+
+    function validateDatabase(data, mode) {
+        if (!Array.isArray(data) || !data.length) throw new Error('Empty or invalid database');
+        for (const group of data) {
+            const contacts = mode === 'federal' ? group.components : group.agencies;
+            if (typeof (mode === 'federal' ? group.deptName : group.state) !== 'string'
+                || !Array.isArray(contacts) || contacts.some(contact =>
+                    typeof contact.title !== 'string' || !Array.isArray(contact.emails)
+                    || contact.emails.some(email => typeof email !== 'string'))) {
+                throw new Error('Invalid database structure');
+            }
+        }
+        return data;
+    }
+
+    function updateStatus() {
+        const data = currentTab === 'federal' ? FOIA_DATABASE : STATE_DATABASE;
+        if (loadErrors[currentTab]) {
+            banner.className = 'status-banner status-warning';
+            banner.textContent = 'Unable to load the ' + currentTab + ' database. Serve this folder over HTTP, then reload the page.';
+        } else {
+            banner.className = 'status-banner ' + (data.length ? 'status-success' : 'status-loading');
+            banner.textContent = data.length ? 'Loaded ' + data.length + (currentTab === 'federal' ? ' federal departments.' : ' states and D.C.') : 'Loading database...';
+        }
+    }
+
+    async function loadDatabase(mode, path) {
+        try {
+            const response = await fetch(path);
+            if (!response.ok) throw new Error('HTTP ' + response.status);
+            const data = validateDatabase(await response.json(), mode);
+            if (mode === 'federal') FOIA_DATABASE = data;
+            else STATE_DATABASE = data;
+        } catch (error) {
+            loadErrors[mode] = error.message;
+        }
+        updateStatus();
+    }
+
+    function clearResults() {
+        document.getElementById('outputSection').style.display = 'none';
+        document.getElementById('stateInfoBox').style.display = 'none';
+        document.getElementById('resultsList').replaceChildren();
+        document.getElementById('commaEmails').value = '';
+        document.getElementById('semicolonEmails').value = '';
+        dropdown.replaceChildren();
+        dropdown.style.display = 'none';
+    }
+
+    function switchTab(tab) {
+        currentTab = tab;
+        document.getElementById('tabFederal').classList.toggle('active', tab === 'federal');
+        document.getElementById('tabState').classList.toggle('active', tab === 'state');
+        input.placeholder = tab === 'federal' ? 'Type federal department or agency name...' : 'Type state, statute, or agency name...';
+        input.value = '';
+        clearResults();
+        updateStatus();
+    }
+
+    function matches(query) {
+        const groups = currentTab === 'federal' ? FOIA_DATABASE : STATE_DATABASE;
+        return groups.flatMap(group => {
+            const parentFields = currentTab === 'federal' ? [group.deptName, group.deptAbbr] : [group.state, group.statute, group.citation];
+            const parentMatch = parentFields.some(value => normalize(value).includes(query));
+            const contacts = currentTab === 'federal' ? group.components : group.agencies;
+            return contacts.filter(contact => parentMatch || [contact.title, contact.abbr].some(value => normalize(value).includes(query)))
+                .map(contact => ({group, contact}));
+        });
+    }
+
+    function addText(parent, className, text) {
+        const node = document.createElement('div');
+        node.className = className;
+        node.textContent = text;
+        parent.appendChild(node);
+        return node;
+    }
+
+    function executeSearch() {
+        clearResults();
+        const query = normalize(input.value);
+        if (!query) return;
+        const rows = matches(query);
+        document.getElementById('outputSection').style.display = 'block';
+        document.getElementById('resultsHeader').textContent = rows.length ? rows.length + ' matching contacts' : 'No matching contacts found.';
+        const emails = [...new Map(rows.flatMap(row => row.contact.emails)
+            .map(email => email.trim()).filter(Boolean).map(email => [email.toLowerCase(), email])).values()];
+        document.getElementById('commaEmails').value = emails.join(', ');
+        document.getElementById('semicolonEmails').value = emails.join('; ');
+        const list = document.getElementById('resultsList');
+        for (const {group, contact} of rows) {
+            const card = document.createElement('div');
+            card.className = 'card';
+            addText(card, 'card-title', contact.title);
+            addText(card, 'card-detail', currentTab === 'federal' ? group.deptName : group.state);
+            if (contact.abbr) addText(card, 'card-detail', 'Abbreviation: ' + contact.abbr);
+            if (contact.phone) addText(card, 'card-detail', 'Phone: ' + contact.phone);
+            addText(card, 'card-detail', 'Email: ' + (contact.emails.join(', ') || 'No email listed'));
+            list.appendChild(card);
+        }
+        if (currentTab === 'state') {
+            const groups = [...new Set(rows.map(row => row.group))];
+            const info = document.getElementById('stateDetails');
+            info.replaceChildren();
+            document.getElementById('stateStatuteName').textContent = 'Public records statutes';
+            for (const group of groups) {
+                addText(info, 'card-detail', group.state + ': ' + group.statute + ' — ' + group.citation);
+                addText(info, 'card-detail', 'Listed response timeframe: ' + group.response_days);
+                addText(info, 'card-detail', group.residency_required ? 'Residency requirement listed: Yes' : 'Residency requirement listed: No');
+            }
+            document.getElementById('stateInfoBox').style.display = groups.length ? 'block' : 'none';
+        }
+    }
+
+    function showSuggestions() {
+        dropdown.replaceChildren();
+        const query = normalize(input.value);
+        if (!query) { dropdown.style.display = 'none'; return; }
+        const suggestions = new Map();
+        for (const {group, contact} of matches(query)) {
+            const parent = currentTab === 'federal' ? group.deptName : group.state;
+            suggestions.set(parent, 'Group');
+            suggestions.set(contact.title, 'Agency');
+        }
+        for (const [name, type] of [...suggestions].slice(0, 12)) {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'suggestion-item';
+            button.style.cssText = 'display:block;width:100%;text-align:left;background:white;border:0;';
+            button.textContent = name + ' (' + type + ')';
+            button.addEventListener('click', () => { input.value = name; executeSearch(); });
+            dropdown.appendChild(button);
+        }
+        dropdown.style.display = suggestions.size ? 'block' : 'none';
+    }
+
+    async function copyToClipboard(id) {
+        const field = document.getElementById(id);
+        if (!field.value) return;
+        try {
+            await navigator.clipboard.writeText(field.value);
+            banner.textContent = 'Emails copied to clipboard.';
+        } catch (error) {
+            field.focus();
+            field.select();
+            banner.textContent = 'Clipboard unavailable. The emails are selected; press Ctrl+C or Command+C to copy.';
+        }
+    }
+
+    input.addEventListener('input', showSuggestions);
+    input.addEventListener('keydown', event => {
+        if (event.key === 'Enter') executeSearch();
+        if (event.key === 'Escape') dropdown.style.display = 'none';
+    });
+    document.addEventListener('click', event => {
+        if (!event.target.closest('.search-container')) dropdown.style.display = 'none';
+    });
+    loadDatabase('federal', './foia_data.json');
+    loadDatabase('state', './state_foia_data.json');
+</script>
+</body>
+</html>
