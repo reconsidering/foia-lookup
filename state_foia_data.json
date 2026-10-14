@@ -786,4 +786,891 @@
       {
         "title": "Mississippi Department of Public Safety",
         "abbr": "DPS",
-        "phone": "(601) 987-12
+        "phone": "(601) 987-1212",
+        "emails": ["publicrecords@dps.ms.gov"]
+      },
+      {
+        "title": "Mississippi Department of Transportation",
+        "abbr": "MDOT",
+        "phone": "(601) 359-7001",
+        "emails": ["publicrecords@mdot.ms.gov"]
+      },
+      {
+        "title": "Mississippi Department of Environmental Quality",
+        "abbr": "MDEQ",
+        "phone": "(601) 961-5171",
+        "emails": ["public_records@mdeq.ms.gov"]
+      }
+    ]
+  },
+  {
+    "state": "Missouri",
+    "statute": "Missouri Sunshine Law",
+    "citation": "Mo. Rev. Stat. § 610.010 et seq.",
+    "response_days": "3 business days",
+    "residency_required": false,
+    "agencies": [
+      {
+        "title": "Missouri Attorney General's Office",
+        "abbr": "MO AG",
+        "phone": "(573) 751-3321",
+        "emails": ["sunshinelaw@ago.mo.gov"]
+      },
+      {
+        "title": "Missouri State Highway Patrol",
+        "abbr": "MSHP",
+        "phone": "(573) 751-3313",
+        "emails": ["mshp.sunshine@mshp.dps.mo.gov"]
+      },
+      {
+        "title": "Missouri Department of Transportation",
+        "abbr": "MoDOT",
+        "phone": "(888) 275-6636",
+        "emails": ["sunshinelaw@modot.mo.gov"]
+      },
+      {
+        "title": "Missouri Department of Natural Resources",
+        "abbr": "DNR",
+        "phone": "(573) 751-3443",
+        "emails": ["sunshine@dnr.mo.gov"]
+      }
+    ]
+  },
+  {
+    "state": "Montana",
+    "statute": "Montana Public Records Act",
+    "citation": "Mont. Code Ann. § 2-6-1001 et seq.",
+    "response_days": "Promptly (no fixed day limit)",
+    "residency_required": false,
+    "agencies": [
+      {
+        "title": "Montana Department of Justice (Attorney General)",
+        "abbr": "MT DOJ",
+        "phone": "(406) 444-2026",
+        "emails": ["contactdoj@mt.gov"]
+      },
+      {
+        "title": "Montana Highway Patrol",
+        "abbr": "MHP",
+        "phone": "(406) 444-3780",
+        "emails": ["mhp@mt.gov"]
+      },
+      {
+        "title": "Montana Department of Transportation",
+        "abbr": "MDT",
+        "phone": "(406) 444-6200",
+        "emails": ["mdtpublicrecords@mt.gov"]
+      },
+      {
+        "title": "Montana Department of Environmental Quality",
+        "abbr": "DEQ",
+        "phone": "(406) 444-2544",
+        "emails": ["deqpublicrecords@mt.gov"]
+      }
+    ]
+  },
+  {
+    "state": "Nebraska",
+    "statute": "Nebraska Public Records Statutes",
+    "citation": "Neb. Rev. Stat. § 84-712 et seq.",
+    "response_days": "4 business days",
+    "residency_required": false,
+    "agencies": [
+      {
+        "title": "Nebraska Attorney General's Office",
+        "abbr": "NE AG",
+        "phone": "(402) 471-2682",
+        "emails": ["ago.publicrecords@nebraska.gov"]
+      },
+      {
+        "title": "Nebraska State Patrol",
+        "abbr": "NSP",
+        "phone": "(402) 471-4545",
+        "emails": ["nsp.publicrecords@nebraska.gov"]
+      },
+      {
+        "title": "Nebraska Department of Transportation",
+        "abbr": "NDOT",
+        "phone": "(402) 471-4567",
+        "emails": ["ndot.publicrecords@nebraska.gov"]
+      },
+      {
+        "title": "Nebraska Department of Environment and Energy",
+        "abbr": "NDEE",
+        "phone": "(402) 471-2186",
+        "emails": ["ndee.publicrecords@nebraska.gov"]
+      }
+    ]
+  },
+  {
+    "state": "Nevada",
+    "statute": "Nevada Public Records Act",
+    "citation": "NRS Chapter 239",
+    "response_days": "5 business days",
+    "residency_required": false,
+    "agencies": [
+      {
+        "title": "Nevada Office of the Attorney General",
+        "abbr": "NV AG",
+        "phone": "(775) 684-1100",
+        "emails": ["aginfo@ag.nv.gov"]
+      },
+      {
+        "title": "Nevada Department of Public Safety",
+        "abbr": "DPS",
+        "phone": "(775) 684-4808",
+        "emails": ["dpspublicrecords@dps.state.nv.us"]
+      },
+      {
+        "title": "Nevada Department of Transportation",
+        "abbr": "NDOT",
+        "phone": "(775) 888-7000",
+        "emails": ["publicrecords@dot.nv.gov"]
+      },
+      {
+        "title": "Nevada Division of Environmental Protection",
+        "abbr": "NDEP",
+        "phone": "(775) 687-4670",
+        "emails": ["ndeppublicrecords@ndep.nv.gov"]
+      }
+    ]
+  },
+  {
+    "state": "New Hampshire",
+    "statute": "New Hampshire Right-to-Know Law",
+    "citation": "RSA 91-A",
+    "response_days": "5 business days",
+    "residency_required": false,
+    "agencies": [
+      {
+        "title": "New Hampshire Department of Justice (Attorney General)",
+        "abbr": "NH DOJ",
+        "phone": "(603) 271-3658",
+        "emails": ["doj-info@doj.nh.gov"]
+      },
+      {
+        "title": "New Hampshire Department of Safety",
+        "abbr": "DOS",
+        "phone": "(603) 223-4220",
+        "emails": ["righttoknow@dos.nh.gov"]
+      },
+      {
+        "title": "New Hampshire Department of Transportation",
+        "abbr": "NHDOT",
+        "phone": "(603) 271-3734",
+        "emails": ["info@dot.nh.gov"]
+      },
+      {
+        "title": "New Hampshire Department of Environmental Services",
+        "abbr": "NHDES",
+        "phone": "(603) 271-3503",
+        "emails": ["puc.desfoia@des.nh.gov"]
+      }
+    ]
+  },
+  {
+    "state": "New Jersey",
+    "statute": "New Jersey Open Public Records Act (OPRA)",
+    "citation": "N.J.S.A. 47:1A-1 et seq.",
+    "response_days": "7 business days",
+    "residency_required": true,
+    "agencies": [
+      {
+        "title": "New Jersey Department of Law and Public Safety (OAG)",
+        "abbr": "NJ DLPS",
+        "phone": "(609) 292-4925",
+        "emails": ["opraunit@law.njoag.gov"]
+      },
+      {
+        "title": "New Jersey State Police",
+        "abbr": "NJSP",
+        "phone": "(609) 882-2000",
+        "emails": ["njspopra@njsp.gov"]
+      },
+      {
+        "title": "New Jersey Department of Transportation",
+        "abbr": "NJDOT",
+        "phone": "(609) 530-2000",
+        "emails": ["njdot.opra@dot.nj.gov"]
+      },
+      {
+        "title": "New Jersey Department of Environmental Protection",
+        "abbr": "NJDEP",
+        "phone": "(609) 777-3373",
+        "emails": ["opra.requests@dep.nj.gov"]
+      }
+    ]
+  },
+  {
+    "state": "New Mexico",
+    "statute": "New Mexico Inspection of Public Records Act (IPRA)",
+    "citation": "NMSA 1978, § 14-2-1 et seq.",
+    "response_days": "15 calendar days",
+    "residency_required": false,
+    "agencies": [
+      {
+        "title": "New Mexico Office of the Attorney General",
+        "abbr": "NM AG",
+        "phone": "(505) 490-4060",
+        "emails": ["ipra@nmag.gov"]
+      },
+      {
+        "title": "New Mexico Department of Public Safety",
+        "abbr": "DPS",
+        "phone": "(505) 827-9200",
+        "emails": ["dps.ipra@state.nm.us"]
+      },
+      {
+        "title": "New Mexico Department of Transportation",
+        "abbr": "NMDOT",
+        "phone": "(505) 827-5100",
+        "emails": ["dot.ipra@state.nm.us"]
+      },
+      {
+        "title": "New Mexico Environment Department",
+        "abbr": "NMED",
+        "phone": "(505) 827-2855",
+        "emails": ["nmed.ipra@state.nm.us"]
+      }
+    ]
+  },
+  {
+    "state": "New York",
+    "statute": "New York Freedom of Information Law (FOIL)",
+    "citation": "N.Y. Pub. Off. Law § 84 et seq.",
+    "response_days": "5 business days",
+    "residency_required": false,
+    "agencies": [
+      {
+        "title": "New York State Office of the Attorney General",
+        "abbr": "NY OAG",
+        "phone": "(212) 416-8000",
+        "emails": ["foil@ag.ny.gov"]
+      },
+      {
+        "title": "New York State Police",
+        "abbr": "NYSP",
+        "phone": "(518) 457-6712",
+        "emails": ["foil@troopers.ny.gov"]
+      },
+      {
+        "title": "New York State Department of Transportation",
+        "abbr": "NYSDOT",
+        "phone": "(518) 457-6195",
+        "emails": ["foil@dot.ny.gov"]
+      },
+      {
+        "title": "New York State Department of Environmental Conservation",
+        "abbr": "NYSDEC",
+        "phone": "(518) 402-9188",
+        "emails": ["access.records@dec.ny.gov"]
+      },
+      {
+        "title": "New York State Department of Health",
+        "abbr": "NYSDOH",
+        "phone": "(518) 474-8734",
+        "emails": ["foil@health.ny.gov"]
+      }
+    ]
+  },
+  {
+    "state": "North Carolina",
+    "statute": "North Carolina Public Records Law",
+    "citation": "N.C.G.S. Chapter 132",
+    "response_days": "As promptly as possible (no fixed limit)",
+    "residency_required": false,
+    "agencies": [
+      {
+        "title": "North Carolina Department of Justice (Attorney General)",
+        "abbr": "NC DOJ",
+        "phone": "(919) 716-6400",
+        "emails": ["publicrecords@ncdoj.gov"]
+      },
+      {
+        "title": "North Carolina Department of Public Safety",
+        "abbr": "DPS",
+        "phone": "(919) 733-2126",
+        "emails": ["publicrecords@ncdps.gov"]
+      },
+      {
+        "title": "North Carolina Department of Transportation",
+        "abbr": "NCDOT",
+        "phone": "(919) 707-2660",
+        "emails": ["publicrecords@ncdot.gov"]
+      },
+      {
+        "title": "North Carolina Department of Environmental Quality",
+        "abbr": "NCDEQ",
+        "phone": "(877) 623-6748",
+        "emails": ["publicrecords@deq.nc.gov"]
+      }
+    ]
+  },
+  {
+    "state": "North Dakota",
+    "statute": "North Dakota Open Records Law",
+    "citation": "N.D.C.C. § 44-04-18 et seq.",
+    "response_days": "Reasonable time (no fixed limit)",
+    "residency_required": false,
+    "agencies": [
+      {
+        "title": "North Dakota Office of Attorney General",
+        "abbr": "ND AG",
+        "phone": "(701) 328-2210",
+        "emails": ["ndag@nd.gov"]
+      },
+      {
+        "title": "North Dakota Highway Patrol",
+        "abbr": "NDHP",
+        "phone": "(701) 328-2455",
+        "emails": ["ndhpinfo@nd.gov"]
+      },
+      {
+        "title": "North Dakota Department of Transportation",
+        "abbr": "NDDOT",
+        "phone": "(701) 328-2500",
+        "emails": ["dot@nd.gov"]
+      },
+      {
+        "title": "North Dakota Department of Environmental Quality",
+        "abbr": "NDDEQ",
+        "phone": "(701) 328-5150",
+        "emails": ["deq@nd.gov"]
+      }
+    ]
+  },
+  {
+    "state": "Ohio",
+    "statute": "Ohio Open Records Law",
+    "citation": "R.C. § 149.43 et seq.",
+    "response_days": "Promptly / Reasonable period of time",
+    "residency_required": false,
+    "agencies": [
+      {
+        "title": "Ohio Attorney General's Office",
+        "abbr": "OH AG",
+        "phone": "(800) 282-0515",
+        "emails": ["publicrecordsrequests@ohioag.gov"]
+      },
+      {
+        "title": "Ohio Department of Public Safety",
+        "abbr": "ODPS",
+        "phone": "(614) 466-3383",
+        "emails": ["publicrecords@dps.ohio.gov"]
+      },
+      {
+        "title": "Ohio Department of Transportation",
+        "abbr": "ODOT",
+        "phone": "(614) 466-7170",
+        "emails": ["public.records@dot.ohio.gov"]
+      },
+      {
+        "title": "Ohio Environmental Protection Agency",
+        "abbr": "Ohio EPA",
+        "phone": "(614) 644-3020",
+        "emails": ["publicrecords@epa.ohio.gov"]
+      }
+    ]
+  },
+  {
+    "state": "Oklahoma",
+    "statute": "Oklahoma Open Records Act",
+    "citation": "51 O.S. § 24A.1 et seq.",
+    "response_days": "Prompt, reasonable access",
+    "residency_required": false,
+    "agencies": [
+      {
+        "title": "Oklahoma Office of the Attorney General",
+        "abbr": "OK AG",
+        "phone": "(405) 521-3921",
+        "emails": ["openrecords@oag.ok.gov"]
+      },
+      {
+        "title": "Oklahoma Department of Public Safety",
+        "abbr": "DPS",
+        "phone": "(405) 425-2424",
+        "emails": ["openrecords@dps.ok.gov"]
+      },
+      {
+        "title": "Oklahoma Department of Transportation",
+        "abbr": "ODOT",
+        "phone": "(405) 521-2586",
+        "emails": ["odot-openrecords@odot.org"]
+      },
+      {
+        "title": "Oklahoma Department of Environmental Quality",
+        "abbr": "DEQ",
+        "phone": "(405) 702-0100",
+        "emails": ["deqopenrecords@deq.ok.gov"]
+      }
+    ]
+  },
+  {
+    "state": "Oregon",
+    "statute": "Oregon Public Records Law",
+    "citation": "ORS 192.311 et seq.",
+    "response_days": "15 business days",
+    "residency_required": false,
+    "agencies": [
+      {
+        "title": "Oregon Department of Justice (Attorney General)",
+        "abbr": "OR DOJ",
+        "phone": "(503) 378-4400",
+        "emails": ["publicrecords@doj.state.or.us"]
+      },
+      {
+        "title": "Oregon State Police",
+        "abbr": "OSP",
+        "phone": "(503) 378-3720",
+        "emails": ["osp.publicrecords@osp.oregon.gov"]
+      },
+      {
+        "title": "Oregon Department of Transportation",
+        "abbr": "ODOT",
+        "phone": "(503) 986-3200",
+        "emails": ["odotpublicrecords@odot.oregon.gov"]
+      },
+      {
+        "title": "Oregon Department of Environmental Quality",
+        "abbr": "DEQ",
+        "phone": "(503) 229-5696",
+        "emails": ["deq.publicrecords@deq.oregon.gov"]
+      }
+    ]
+  },
+  {
+    "state": "Pennsylvania",
+    "statute": "Pennsylvania Right-to-Know Law (RTKL)",
+    "citation": "65 P.S. § 67.101 et seq.",
+    "response_days": "5 business days",
+    "residency_required": false,
+    "agencies": [
+      {
+        "title": "Pennsylvania Office of Attorney General",
+        "abbr": "PA OAG",
+        "phone": "(717) 787-3391",
+        "emails": ["rtkl@attorneygeneral.gov"]
+      },
+      {
+        "title": "Pennsylvania State Police",
+        "abbr": "PSP",
+        "phone": "(717) 783-5599",
+        "emails": ["ra-psprtko@pa.gov"]
+      },
+      {
+        "title": "Pennsylvania Department of Transportation",
+        "abbr": "PennDOT",
+        "phone": "(717) 787-2838",
+        "emails": ["penndot-rtk@pa.gov"]
+      },
+      {
+        "title": "Pennsylvania Department of Environmental Protection",
+        "abbr": "DEP",
+        "phone": "(717) 787-7193",
+        "emails": ["ra-eprtk@pa.gov"]
+      }
+    ]
+  },
+  {
+    "state": "Rhode Island",
+    "statute": "Rhode Island Access to Public Records Act (APRA)",
+    "citation": "R.I. Gen. Laws § 38-2-1 et seq.",
+    "response_days": "10 business days",
+    "residency_required": false,
+    "agencies": [
+      {
+        "title": "Rhode Island Office of the Attorney General",
+        "abbr": "RI AG",
+        "phone": "(401) 274-4400",
+        "emails": ["apra@riag.ri.gov"]
+      },
+      {
+        "title": "Rhode Island State Police",
+        "abbr": "RISP",
+        "phone": "(401) 444-1000",
+        "emails": ["apra@risp.gov"]
+      },
+      {
+        "title": "Rhode Island Department of Transportation",
+        "abbr": "RIDOT",
+        "phone": "(401) 222-2450",
+        "emails": ["dot.apra@dot.ri.gov"]
+      },
+      {
+        "title": "Rhode Island Department of Environmental Management",
+        "abbr": "RIDEM",
+        "phone": "(401) 222-6800",
+        "emails": ["dem.apra@dem.ri.gov"]
+      }
+    ]
+  },
+  {
+    "state": "South Carolina",
+    "statute": "South Carolina Freedom of Information Act",
+    "citation": "S.C. Code Ann. § 30-4-10 et seq.",
+    "response_days": "10 business days",
+    "residency_required": false,
+    "agencies": [
+      {
+        "title": "South Carolina Attorney General's Office",
+        "abbr": "SC AG",
+        "phone": "(803) 734-3970",
+        "emails": ["foia@scag.gov"]
+      },
+      {
+        "title": "South Carolina Department of Public Safety",
+        "abbr": "SCDPS",
+        "phone": "(803) 896-7833",
+        "emails": ["foia@scdps.gov"]
+      },
+      {
+        "title": "South Carolina Department of Transportation",
+        "abbr": "SCDOT",
+        "phone": "(803) 737-2314",
+        "emails": ["scdotfoia@scdot.org"]
+      },
+      {
+        "title": "South Carolina Department of Environmental Services",
+        "abbr": "SCDES",
+        "phone": "(803) 898-3432",
+        "emails": ["foia@des.sc.gov"]
+      }
+    ]
+  },
+  {
+    "state": "South Dakota",
+    "statute": "South Dakota Public Records Law",
+    "citation": "SDCL § 1-27-1 et seq.",
+    "response_days": "10 business days",
+    "residency_required": false,
+    "agencies": [
+      {
+        "title": "South Dakota Office of the Attorney General",
+        "abbr": "SD AG",
+        "phone": "(605) 773-3215",
+        "emails": ["atghelp@state.sd.us"]
+      },
+      {
+        "title": "South Dakota Department of Public Safety",
+        "abbr": "DPS",
+        "phone": "(605) 773-3178",
+        "emails": ["dpsinfo@state.sd.us"]
+      },
+      {
+        "title": "South Dakota Department of Transportation",
+        "abbr": "SDDOT",
+        "phone": "(605) 773-3265",
+        "emails": ["sddotinfo@state.sd.us"]
+      },
+      {
+        "title": "South Dakota Department of Agriculture and Natural Resources",
+        "abbr": "DANR",
+        "phone": "(605) 773-3151",
+        "emails": ["danrinfo@state.sd.us"]
+      }
+    ]
+  },
+  {
+    "state": "Tennessee",
+    "statute": "Tennessee Public Records Act (TPRA)",
+    "citation": "T.C.A. § 10-7-503 et seq.",
+    "response_days": "7 business days",
+    "residency_required": true,
+    "agencies": [
+      {
+        "title": "Tennessee Office of the Attorney General",
+        "abbr": "TN AG",
+        "phone": "(615) 741-3491",
+        "emails": ["tnoag.tpra@ag.tn.gov"]
+      },
+      {
+        "title": "Tennessee Department of Safety & Homeland Security",
+        "abbr": "TDOSHS",
+        "phone": "(615) 251-5166",
+        "emails": ["safety.publicrecords@tn.gov"]
+      },
+      {
+        "title": "Tennessee Department of Transportation",
+        "abbr": "TDOT",
+        "phone": "(615) 741-2848",
+        "emails": ["tdot.publicrecords@tn.gov"]
+      },
+      {
+        "title": "Tennessee Department of Environment & Conservation",
+        "abbr": "TDEC",
+        "phone": "(888) 891-8332",
+        "emails": ["tdec.publicrecords@tn.gov"]
+      }
+    ]
+  },
+  {
+    "state": "Texas",
+    "statute": "Texas Public Information Act (PIA)",
+    "citation": "Tex. Gov't Code Chapter 552",
+    "response_days": "10 business days",
+    "residency_required": false,
+    "agencies": [
+      {
+        "title": "Office of the Attorney General of Texas",
+        "abbr": "TX OAG",
+        "phone": "(512) 463-2100",
+        "emails": ["publicrecords@oag.texas.gov"]
+      },
+      {
+        "title": "Texas Department of Public Safety",
+        "abbr": "TxDPS",
+        "phone": "(512) 424-2000",
+        "emails": ["ogc.openrecords@dps.texas.gov"]
+      },
+      {
+        "title": "Texas Department of Transportation",
+        "abbr": "TxDOT",
+        "phone": "(512) 463-8588",
+        "emails": ["openrecords@txdot.gov"]
+      },
+      {
+        "title": "Texas Commission on Environmental Quality",
+        "abbr": "TCEQ",
+        "phone": "(512) 239-1000",
+        "emails": ["openrec@tceq.texas.gov"]
+      },
+      {
+        "title": "Texas Department of State Health Services",
+        "abbr": "DSHS",
+        "phone": "(512) 776-7111",
+        "emails": ["openrecords@dshs.texas.gov"]
+      }
+    ]
+  },
+  {
+    "state": "Utah",
+    "statute": "Utah Government Records Access and Management Act (GRAMA)",
+    "citation": "Utah Code § 63G-2-101 et seq.",
+    "response_days": "10 business days",
+    "residency_required": false,
+    "agencies": [
+      {
+        "title": "Utah Office of the Attorney General",
+        "abbr": "UT AG",
+        "phone": "(801) 538-9600",
+        "emails": ["grama@agutah.gov"]
+      },
+      {
+        "title": "Utah Department of Public Safety",
+        "abbr": "DPS",
+        "phone": "(801) 965-4461",
+        "emails": ["dpsgrama@utah.gov"]
+      },
+      {
+        "title": "Utah Department of Transportation",
+        "abbr": "UDOT",
+        "phone": "(801) 965-4000",
+        "emails": ["udotgrama@utah.gov"]
+      },
+      {
+        "title": "Utah Department of Environmental Quality",
+        "abbr": "UDEQ",
+        "phone": "(801) 536-4400",
+        "emails": ["deqgrama@utah.gov"]
+      }
+    ]
+  },
+  {
+    "state": "Vermont",
+    "statute": "Vermont Public Records Law",
+    "citation": "1 V.S.A. § 315 et seq.",
+    "response_days": "3 business days",
+    "residency_required": false,
+    "agencies": [
+      {
+        "title": "Vermont Office of the Attorney General",
+        "abbr": "VT AG",
+        "phone": "(802) 828-3171",
+        "emails": ["ago.publicrecords@vermont.gov"]
+      },
+      {
+        "title": "Vermont Department of Public Safety",
+        "abbr": "DPS",
+        "phone": "(802) 241-5000",
+        "emails": ["dps.publicrecords@vermont.gov"]
+      },
+      {
+        "title": "Vermont Agency of Transportation",
+        "abbr": "VTrans",
+        "phone": "(802) 828-2657",
+        "emails": ["vtrans.publicrecords@vermont.gov"]
+      },
+      {
+        "title": "Vermont Agency of Natural Resources",
+        "abbr": "ANR",
+        "phone": "(802) 828-1294",
+        "emails": ["anr.publicrecords@vermont.gov"]
+      }
+    ]
+  },
+  {
+    "state": "Virginia",
+    "statute": "Virginia Freedom of Information Act (VFOIA)",
+    "citation": "Va. Code § 2.2-3700 et seq.",
+    "response_days": "5 business days",
+    "residency_required": true,
+    "agencies": [
+      {
+        "title": "Virginia Office of the Attorney General",
+        "abbr": "VA OAG",
+        "phone": "(804) 786-2071",
+        "emails": ["foia@oag.state.va.us"]
+      },
+      {
+        "title": "Virginia Department of State Police",
+        "abbr": "VSP",
+        "phone": "(804) 674-3000",
+        "emails": ["foia@vsp.virginia.gov"]
+      },
+      {
+        "title": "Virginia Department of Transportation",
+        "abbr": "VDOT",
+        "phone": "(800) 367-7623",
+        "emails": ["vdotfoia@vdot.virginia.gov"]
+      },
+      {
+        "title": "Virginia Department of Environmental Quality",
+        "abbr": "DEQ",
+        "phone": "(804) 698-4000",
+        "emails": ["foia@deq.virginia.gov"]
+      }
+    ]
+  },
+  {
+    "state": "Washington",
+    "statute": "Washington Public Records Act (PRA)",
+    "citation": "RCW 42.56",
+    "response_days": "5 business days",
+    "residency_required": false,
+    "agencies": [
+      {
+        "title": "Washington Office of the Attorney General",
+        "abbr": "WA AG",
+        "phone": "(360) 753-6200",
+        "emails": ["publicrecords@atg.wa.gov"]
+      },
+      {
+        "title": "Washington State Patrol",
+        "abbr": "WSP",
+        "phone": "(360) 596-4137",
+        "emails": ["publicrecords@wsp.wa.gov"]
+      },
+      {
+        "title": "Washington State Department of Transportation",
+        "abbr": "WSDOT",
+        "phone": "(360) 705-7000",
+        "emails": ["publicrecordsrequests@wsdot.wa.gov"]
+      },
+      {
+        "title": "Washington Department of Ecology",
+        "abbr": "Ecology",
+        "phone": "(360) 407-6000",
+        "emails": ["recordsofficer@ecy.wa.gov"]
+      }
+    ]
+  },
+  {
+    "state": "West Virginia",
+    "statute": "West Virginia Freedom of Information Act",
+    "citation": "W. Va. Code § 29B-1-1 et seq.",
+    "response_days": "5 business days",
+    "residency_required": false,
+    "agencies": [
+      {
+        "title": "West Virginia Office of the Attorney General",
+        "abbr": "WV AG",
+        "phone": "(304) 558-2021",
+        "emails": ["wvfoia@wvago.gov"]
+      },
+      {
+        "title": "West Virginia State Police",
+        "abbr": "WVSP",
+        "phone": "(304) 746-2100",
+        "emails": ["wvspfoia@wvsp.gov"]
+      },
+      {
+        "title": "West Virginia Department of Transportation",
+        "abbr": "WVDOT",
+        "phone": "(304) 558-3505",
+        "emails": ["dot.foia@wv.gov"]
+      },
+      {
+        "title": "West Virginia Department of Environmental Protection",
+        "abbr": "WVDEP",
+        "phone": "(304) 926-0440",
+        "emails": ["depfoia@wv.gov"]
+      }
+    ]
+  },
+  {
+    "state": "Wisconsin",
+    "statute": "Wisconsin Public Records Law",
+    "citation": "Wis. Stat. §§ 19.31–19.39",
+    "response_days": "As soon as practicable (typically 10 business days)",
+    "residency_required": false,
+    "agencies": [
+      {
+        "title": "Wisconsin Department of Justice (Attorney General)",
+        "abbr": "WI DOJ",
+        "phone": "(608) 266-1221",
+        "emails": ["publicrecords@doj.state.wi.us"]
+      },
+      {
+        "title": "Wisconsin Department of Transportation",
+        "abbr": "WisDOT",
+        "phone": "(608) 266-3581",
+        "emails": ["wisdotpublicrecords@dot.wi.gov"]
+      },
+      {
+        "title": "Wisconsin Department of Natural Resources",
+        "abbr": "DNR",
+        "phone": "(888) 936-7463",
+        "emails": ["dnrpublicrecords@wisconsin.gov"]
+      },
+      {
+        "title": "Wisconsin Department of Health Services",
+        "abbr": "DHS",
+        "phone": "(608) 266-1865",
+        "emails": ["dhsmedialine@dhs.wisconsin.gov"]
+      }
+    ]
+  },
+  {
+    "state": "Wyoming",
+    "statute": "Wyoming Public Records Act",
+    "citation": "Wyo. Stat. § 16-4-201 et seq.",
+    "response_days": "30 calendar days",
+    "residency_required": false,
+    "agencies": [
+      {
+        "title": "Wyoming Office of the Attorney General",
+        "abbr": "WY AG",
+        "phone": "(307) 777-7841",
+        "emails": ["wyag@wyo.gov"]
+      },
+      {
+        "title": "Wyoming Highway Patrol",
+        "abbr": "WHP",
+        "phone": "(307) 777-4301",
+        "emails": ["whp.records@wyo.gov"]
+      },
+      {
+        "title": "Wyoming Department of Transportation",
+        "abbr": "WYDOT",
+        "phone": "(307) 777-4375",
+        "emails": ["wydot.publicrecords@wyo.gov"]
+      },
+      {
+        "title": "Wyoming Department of Environmental Quality",
+        "abbr": "DEQ",
+        "phone": "(307) 777-7937",
+        "emails": ["deq.publicrecords@wyo.gov"]
+      }
+    ]
+  }
+]
