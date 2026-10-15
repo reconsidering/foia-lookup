@@ -22,7 +22,7 @@ async function run(failFederal=false) {
  search('Virginia','state');assert.ok(nodes.get('stateDetails').children.some(n=>/Yes/.test(n.textContent)));
  await context.copyToClipboard('commaEmails');assert.equal(context.copied,nodes.get('commaEmails').value);
  context.navigator.clipboard=undefined;await context.copyToClipboard('commaEmails');assert.ok(nodes.get('commaEmails').selected);
- search('Food and Drug Administration');assert.equal(nodes.get('resultsList').children.length,1);assert.ok(nodes.get('resultsList').children[0].children.some(n=>/Online portal/.test(n.textContent)));assert.ok(nodes.get('resultsList').children[0].children.some(n=>/No public FOIA email/.test(n.textContent)));
+ search('Food and Drug Administration');assert.equal(nodes.get('resultsList').children.length,1);assert.ok(nodes.get('resultsList').children[0].children.some(n=>/Online portal/.test(n.textContent)));assert.ok(nodes.get('resultsList').children[0].children.some(n=>/FOIA\.gov/.test(n.textContent)));
  assert.equal(nodes.get('commaEmails').value,'');
  search('nothing matches');assert.equal(nodes.get('commaEmails').value,'');assert.match(nodes.get('resultsHeader').textContent,/No matching/);
  search('');assert.equal(nodes.get('outputSection').style.display,'none');
