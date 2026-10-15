@@ -5,7 +5,7 @@ const html = fs.readFileSync(__dirname + '/FOIA_Lookup.html', 'utf8');
 const script = html.match(/<script>([\s\S]*?)<\/script>/)[1];
 const federal = JSON.parse(fs.readFileSync(__dirname + '/foia_data.json'));
 const states = JSON.parse(fs.readFileSync(__dirname + '/state_foia_data.json'));
-function element() { return {style:{},value:'',children:[],classList:{toggle(){}},replaceChildren(){this.children=[];},appendChild(n){this.children.push(n);},addEventListener(){},focus(){this.focused=true;},select(){this.selected=true;}}; }
+function element() { return {style:{},textContent:'',value:'',children:[],classList:{toggle(){}},replaceChildren(){this.children=[];},appendChild(n){this.children.push(n);},addEventListener(){},focus(){this.focused=true;},select(){this.selected=true;}}; }
 async function run(failFederal=false) {
  const nodes = new Map();
  const document = { getElementById(id){if(!nodes.has(id)) nodes.set(id,element()); return nodes.get(id);},createElement:element,addEventListener(){} };
@@ -22,6 +22,8 @@ async function run(failFederal=false) {
  search('Virginia','state');assert.ok(nodes.get('stateDetails').children.some(n=>/Yes/.test(n.textContent)));
  await context.copyToClipboard('commaEmails');assert.equal(context.copied,nodes.get('commaEmails').value);
  context.navigator.clipboard=undefined;await context.copyToClipboard('commaEmails');assert.ok(nodes.get('commaEmails').selected);
+ search('Food and Drug Administration');assert.equal(nodes.get('resultsList').children.length,1);assert.ok(nodes.get('resultsList').children[0].children.some(n=>/Online portal/.test(n.textContent)));assert.ok(nodes.get('resultsList').children[0].children.some(n=>/No public FOIA email/.test(n.textContent)));
+ assert.equal(nodes.get('commaEmails').value,'');
  search('nothing matches');assert.equal(nodes.get('commaEmails').value,'');assert.match(nodes.get('resultsHeader').textContent,/No matching/);
  search('');assert.equal(nodes.get('outputSection').style.display,'none');
  vm.runInContext(`FOIA_DATABASE=[{deptName:'<img onerror=bad()>',deptAbbr:'TEST',components:[{title:'<script>bad()</script>',emails:['same@example.gov',' SAME@example.gov ']}]}];`,context);

@@ -247,6 +247,8 @@
             margin-bottom: 6px;
         }
 
+        .card-note { font-style: italic; color: #7a4b00; }
+
         .card-detail {
             font-size: 14px;
             margin: 4px 0;
@@ -323,7 +325,9 @@
             if (typeof (mode === 'federal' ? group.deptName : group.state) !== 'string'
                 || !Array.isArray(contacts) || contacts.some(contact =>
                     typeof contact.title !== 'string' || !Array.isArray(contact.emails)
-                    || contact.emails.some(email => typeof email !== 'string'))) {
+                    || contact.emails.some(email => typeof email !== 'string')
+                    || (contact.portal !== undefined && typeof contact.portal !== 'string')
+                    || (contact.note !== undefined && typeof contact.note !== 'string'))) {
                 throw new Error('Invalid database structure');
             }
         }
@@ -385,6 +389,10 @@
         });
     }
 
+    function isHttpUrl(value) {
+        return typeof value === 'string' && /^https?:\/\//i.test(value);
+    }
+
     function addText(parent, className, text) {
         const node = document.createElement('div');
         node.className = className;
@@ -413,6 +421,16 @@
             if (contact.abbr) addText(card, 'card-detail', 'Abbreviation: ' + contact.abbr);
             if (contact.phone) addText(card, 'card-detail', 'Phone: ' + contact.phone);
             addText(card, 'card-detail', 'Email: ' + (contact.emails.join(', ') || 'No email listed'));
+            if (isHttpUrl(contact.portal)) {
+                const line = addText(card, 'card-detail', 'Online portal: ');
+                const link = document.createElement('a');
+                link.href = contact.portal;
+                link.textContent = contact.portal;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                line.appendChild(link);
+            }
+            if (contact.note) addText(card, 'card-detail card-note', contact.note);
             list.appendChild(card);
         }
         if (currentTab === 'state') {
