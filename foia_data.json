@@ -68,6 +68,20 @@
         "abbr": "ATR",
         "phone": "(202) 514-2692",
         "emails": ["atrf.foia@usdoj.gov"]
+      },
+      {
+        "title": "Criminal Division",
+        "abbr": "CRM",
+        "emails": ["crm.foia@usdoj.gov"],
+        "portal": "https://www.justice.gov/oip/find-foia-contact-doj",
+        "note": "Phone (202) 616-0307."
+      },
+      {
+        "title": "National Security Division",
+        "abbr": "NSD",
+        "emails": ["nsdfoia@usdoj.gov"],
+        "portal": "https://www.justice.gov/oip/find-foia-contact-doj",
+        "note": "Phone (202) 233-2639."
       }
     ]
   },
@@ -79,43 +93,71 @@
         "title": "U.S. Customs and Border Protection",
         "abbr": "CBP",
         "phone": "(202) 325-0150",
-        "emails": ["cbpfoia@cbp.dhs.gov"]
+        "emails": ["cbpfoia@cbp.dhs.gov"],
+        "portal": "https://www.dhs.gov/foia",
+        "note": "DHS and its components generally no longer accept FOIA requests by email, mail or fax; submit through the DHS FOIA portal (emails above are legacy)."
       },
       {
         "title": "Transportation Security Administration",
         "abbr": "TSA",
         "phone": "(571) 227-2300",
-        "emails": ["foia@tsa.dhs.gov"]
+        "emails": ["foia@tsa.dhs.gov"],
+        "portal": "https://www.dhs.gov/foia",
+        "note": "DHS and its components generally no longer accept FOIA requests by email, mail or fax; submit through the DHS FOIA portal (emails above are legacy)."
       },
       {
         "title": "U.S. Citizenship and Immigration Services",
         "abbr": "USCIS",
         "phone": "(800) 375-5283",
-        "emails": ["foiapa.uscis@dhs.gov"]
+        "emails": ["foiapa.uscis@dhs.gov"],
+        "portal": "https://www.dhs.gov/foia",
+        "note": "DHS and its components generally no longer accept FOIA requests by email, mail or fax; submit through the DHS FOIA portal (emails above are legacy)."
       },
       {
         "title": "U.S. Immigration and Customs Enforcement",
         "abbr": "ICE",
         "phone": "(866) 747-1948",
-        "emails": ["ice-foia@dhs.gov"]
+        "emails": ["ice-foia@dhs.gov"],
+        "portal": "https://www.dhs.gov/foia",
+        "note": "DHS and its components generally no longer accept FOIA requests by email, mail or fax; submit through the DHS FOIA portal (emails above are legacy)."
       },
       {
         "title": "Federal Emergency Management Agency",
         "abbr": "FEMA",
         "phone": "(202) 646-3323",
-        "emails": ["fema-foia@fema.dhs.gov"]
+        "emails": ["fema-foia@fema.dhs.gov"],
+        "portal": "https://www.dhs.gov/foia",
+        "note": "DHS and its components generally no longer accept FOIA requests by email, mail or fax; submit through the DHS FOIA portal (emails above are legacy)."
       },
       {
         "title": "U.S. Secret Service",
         "abbr": "USSS",
         "phone": "(202) 406-6370",
-        "emails": ["foia@usss.dhs.gov"]
+        "emails": ["foia@usss.dhs.gov"],
+        "portal": "https://www.dhs.gov/foia",
+        "note": "DHS and its components generally no longer accept FOIA requests by email, mail or fax; submit through the DHS FOIA portal (emails above are legacy)."
       },
       {
         "title": "U.S. Coast Guard",
         "abbr": "USCG",
         "phone": "(202) 475-3533",
-        "emails": ["eFOIA@uscg.mil"]
+        "emails": ["eFOIA@uscg.mil"],
+        "portal": "https://www.dhs.gov/foia",
+        "note": "DHS and its components generally no longer accept FOIA requests by email, mail or fax; submit through the DHS FOIA portal (emails above are legacy)."
+      },
+      {
+        "title": "DHS Privacy Office (Headquarters)",
+        "abbr": "DHS HQ",
+        "emails": [],
+        "portal": "https://www.dhs.gov/foia",
+        "note": "DHS and its components generally no longer accept FOIA requests by email, mail or fax; submit through the DHS FOIA portal (emails above are legacy)."
+      },
+      {
+        "title": "Cybersecurity and Infrastructure Security Agency",
+        "abbr": "CISA",
+        "emails": [],
+        "portal": "https://www.dhs.gov/foia",
+        "note": "DHS and its components generally no longer accept FOIA requests by email, mail or fax; submit through the DHS FOIA portal (emails above are legacy)."
       }
     ]
   },
@@ -152,6 +194,34 @@
         "abbr": "NSA",
         "phone": "(443) 654-6576",
         "emails": ["foianet@nsa.gov"]
+      },
+      {
+        "title": "Office of the Secretary of Defense and Joint Staff",
+        "abbr": "OSD/JS",
+        "emails": [],
+        "portal": "https://www.esd.whs.mil/FOID/",
+        "note": "Handles OSD, Joint Staff and some Defense Agencies only; other DoD components have their own centers."
+      },
+      {
+        "title": "U.S. Marine Corps",
+        "abbr": "USMC",
+        "emails": [],
+        "portal": "https://www.hqmc.marines.mil/Agencies/USMC-FOIA/How-to-make-a-request/",
+        "note": "Submit through the Marine Corps online FOIA portal (SecureRelease)."
+      },
+      {
+        "title": "U.S. Space Force",
+        "abbr": "USSF",
+        "emails": [],
+        "portal": "https://www.foia.gov/",
+        "note": "Separate DoD FOIA requester service center; no verified email or direct portal in this directory."
+      },
+      {
+        "title": "Defense Counterintelligence and Security Agency",
+        "abbr": "DCSA",
+        "emails": [],
+        "portal": "https://www.esd.whs.mil/FOID/",
+        "note": "Separate DoD FOIA requester service center; no verified email in this directory. See the DoD FOIA directory."
       }
     ]
   },
@@ -194,6 +264,34 @@
         "abbr": "OCC",
         "phone": "(202) 649-6700",
         "emails": ["foia-pa@occ.treas.gov"]
+      },
+      {
+        "title": "Alcohol and Tobacco Tax and Trade Bureau",
+        "abbr": "TTB",
+        "emails": [],
+        "portal": "https://home.treasury.gov/footer/freedom-of-information-act/submit-a-request",
+        "note": "Submit via the Treasury FOIA portal or FOIA.gov (fallback: FOIA@treasury.gov)."
+      },
+      {
+        "title": "Bureau of Engraving and Printing",
+        "abbr": "BEP",
+        "emails": [],
+        "portal": "https://home.treasury.gov/footer/freedom-of-information-act/submit-a-request",
+        "note": "Submit via the Treasury FOIA portal or FOIA.gov (fallback: FOIA@treasury.gov)."
+      },
+      {
+        "title": "Bureau of the Fiscal Service",
+        "abbr": "BFS",
+        "emails": [],
+        "portal": "https://home.treasury.gov/footer/freedom-of-information-act/submit-a-request",
+        "note": "Submit via the Treasury FOIA portal or FOIA.gov (fallback: FOIA@treasury.gov)."
+      },
+      {
+        "title": "Financial Crimes Enforcement Network",
+        "abbr": "FinCEN",
+        "emails": [],
+        "portal": "https://home.treasury.gov/footer/freedom-of-information-act/submit-a-request",
+        "note": "Submit via the Treasury FOIA portal or FOIA.gov (fallback: FOIA@treasury.gov)."
       }
     ]
   },
@@ -206,6 +304,625 @@
         "abbr": "DOS OIP",
         "phone": "(202) 261-8484",
         "emails": ["foiastatus@state.gov"]
+      }
+    ]
+  },
+  {
+    "deptName": "Department of Health and Human Services",
+    "deptAbbr": "HHS",
+    "components": [
+      {
+        "title": "Administration for Children and Families",
+        "abbr": "ACF",
+        "emails": [],
+        "portal": "https://www.hhs.gov/foia/contacts",
+        "note": "Per HHS, electronic requests go through FOIA.gov; see the HHS FOIA contacts page for this center's mailbox."
+      },
+      {
+        "title": "Centers for Disease Control and Prevention",
+        "abbr": "CDC",
+        "emails": [],
+        "portal": "https://www.hhs.gov/foia/contacts",
+        "note": "Per HHS, electronic requests go through FOIA.gov; see the HHS FOIA contacts page for this center's mailbox."
+      },
+      {
+        "title": "Centers for Medicare & Medicaid Services",
+        "abbr": "CMS",
+        "emails": [],
+        "portal": "https://www.hhs.gov/foia/contacts",
+        "note": "Per HHS, electronic requests go through FOIA.gov; see the HHS FOIA contacts page for this center's mailbox."
+      },
+      {
+        "title": "Food and Drug Administration",
+        "abbr": "FDA",
+        "emails": [],
+        "portal": "https://www.hhs.gov/foia/contacts",
+        "note": "Per HHS, electronic requests go through FOIA.gov; see the HHS FOIA contacts page for this center's mailbox."
+      },
+      {
+        "title": "Health Resources and Services Administration",
+        "abbr": "HRSA",
+        "emails": [],
+        "portal": "https://www.hhs.gov/foia/contacts",
+        "note": "Per HHS, electronic requests go through FOIA.gov; see the HHS FOIA contacts page for this center's mailbox."
+      },
+      {
+        "title": "Indian Health Service",
+        "abbr": "IHS",
+        "emails": [],
+        "portal": "https://www.hhs.gov/foia/contacts",
+        "note": "Per HHS, electronic requests go through FOIA.gov; see the HHS FOIA contacts page for this center's mailbox."
+      },
+      {
+        "title": "National Institutes of Health",
+        "abbr": "NIH",
+        "emails": [],
+        "portal": "https://www.hhs.gov/foia/contacts",
+        "note": "Per HHS, electronic requests go through FOIA.gov; see the HHS FOIA contacts page for this center's mailbox."
+      },
+      {
+        "title": "Office of Inspector General",
+        "abbr": "HHS OIG",
+        "emails": [],
+        "portal": "https://www.hhs.gov/foia/contacts",
+        "note": "Per HHS, electronic requests go through FOIA.gov; see the HHS FOIA contacts page for this center's mailbox."
+      }
+    ]
+  },
+  {
+    "deptName": "Department of Labor",
+    "deptAbbr": "DOL",
+    "components": [
+      {
+        "title": "Office of Information Services, Office of the Solicitor",
+        "abbr": "DOL OIS",
+        "emails": ["foiarequests@dol.gov"],
+        "portal": "https://efoia.dol.gov",
+        "note": "DOL is decentralized: each agency (OSHA, WHD, etc.) answers its own requests; this office routes if unsure. Component list: https://www.dol.gov/general/foia/guide"
+      }
+    ]
+  },
+  {
+    "deptName": "Department of Education",
+    "deptAbbr": "ED",
+    "components": [
+      {
+        "title": "Department of Education FOIA Service Center",
+        "abbr": "ED",
+        "emails": ["EDFOIAManager@ed.gov"],
+        "portal": "https://www.ed.gov/about/ed-overview/required-notices/freedom-of-information-act-foia",
+        "note": "Phone (202) 401-8365."
+      }
+    ]
+  },
+  {
+    "deptName": "Department of Veterans Affairs",
+    "deptAbbr": "VA",
+    "components": [
+      {
+        "title": "Department of Veterans Affairs",
+        "abbr": "VA",
+        "emails": [],
+        "portal": "https://www.foia.gov/",
+        "note": "No verified contact found; use FOIA.gov or the VA FOIA page."
+      }
+    ]
+  },
+  {
+    "deptName": "Department of Commerce",
+    "deptAbbr": "DOC",
+    "components": [
+      {
+        "title": "Office of Privacy and Open Government (Departmental FOIA)",
+        "abbr": "DOC",
+        "emails": ["eFOIA@doc.gov"],
+        "portal": "https://foia-pal.commerce.gov/app/MainPage.aspx",
+        "note": "Submit through the Commerce FOIA PAL portal or FOIA.gov."
+      },
+      {
+        "title": "U.S. Census Bureau",
+        "abbr": "Census",
+        "emails": [],
+        "portal": "https://foia-pal.commerce.gov/app/MainPage.aspx",
+        "note": "Submit through the Commerce FOIA PAL portal or FOIA.gov."
+      },
+      {
+        "title": "National Oceanic and Atmospheric Administration",
+        "abbr": "NOAA",
+        "emails": [],
+        "portal": "https://foia-pal.commerce.gov/app/MainPage.aspx",
+        "note": "Submit through the Commerce FOIA PAL portal or FOIA.gov."
+      },
+      {
+        "title": "National Institute of Standards and Technology",
+        "abbr": "NIST",
+        "emails": [],
+        "portal": "https://foia-pal.commerce.gov/app/MainPage.aspx",
+        "note": "Submit through the Commerce FOIA PAL portal or FOIA.gov."
+      },
+      {
+        "title": "Bureau of Industry and Security",
+        "abbr": "BIS",
+        "emails": [],
+        "portal": "https://foia-pal.commerce.gov/app/MainPage.aspx",
+        "note": "Submit through the Commerce FOIA PAL portal or FOIA.gov."
+      },
+      {
+        "title": "International Trade Administration",
+        "abbr": "ITA",
+        "emails": [],
+        "portal": "https://foia-pal.commerce.gov/app/MainPage.aspx",
+        "note": "Submit through the Commerce FOIA PAL portal or FOIA.gov."
+      },
+      {
+        "title": "U.S. Patent and Trademark Office",
+        "abbr": "USPTO",
+        "emails": [],
+        "portal": "https://www.commerce.gov/foia",
+        "note": "USPTO has its own FOIA instructions; see the Commerce FOIA page."
+      }
+    ]
+  },
+  {
+    "deptName": "Department of Agriculture",
+    "deptAbbr": "USDA",
+    "components": [
+      {
+        "title": "Departmental FOIA Officer",
+        "abbr": "USDA",
+        "emails": ["USDAFOIA@ocio.usda.gov"],
+        "portal": "https://www.usda.gov/foia",
+        "note": "USDA is decentralized; this office routes if unsure."
+      },
+      {
+        "title": "U.S. Forest Service",
+        "abbr": "USFS",
+        "emails": ["SM.FS.WOFOIA@usda.gov"],
+        "portal": "https://www.fs.usda.gov/about-agency/foia/contact-service-centers",
+        "note": "Regional offices have their own addresses; see the portal link."
+      }
+    ]
+  },
+  {
+    "deptName": "Department of the Interior",
+    "deptAbbr": "DOI",
+    "components": [
+      {
+        "title": "Bureau of Indian Affairs",
+        "abbr": "BIA",
+        "emails": [],
+        "portal": "https://www.bia.gov/as-ia/foia/contact-us",
+        "note": "Emailed requests are not accepted; submit through foiaxpresspal.doi.gov or FOIA.gov."
+      },
+      {
+        "title": "Bureau of Ocean Energy Management",
+        "abbr": "BOEM",
+        "emails": [],
+        "portal": "https://doi.gov/node/1607",
+        "note": "Emailed requests are not accepted; submit through foiaxpresspal.doi.gov or FOIA.gov."
+      },
+      {
+        "title": "Bureau of Reclamation",
+        "abbr": "BOR",
+        "emails": [],
+        "portal": "https://doi.gov/node/1607",
+        "note": "Emailed requests are not accepted; submit through foiaxpresspal.doi.gov or FOIA.gov."
+      },
+      {
+        "title": "Bureau of Safety and Environmental Enforcement",
+        "abbr": "BSEE",
+        "emails": [],
+        "portal": "https://doi.gov/node/1607",
+        "note": "Emailed requests are not accepted; submit through foiaxpresspal.doi.gov or FOIA.gov."
+      },
+      {
+        "title": "U.S. Fish and Wildlife Service",
+        "abbr": "FWS",
+        "emails": [],
+        "portal": "https://doi.gov/node/1607",
+        "note": "Emailed requests are not accepted; submit through foiaxpresspal.doi.gov or FOIA.gov."
+      },
+      {
+        "title": "National Park Service",
+        "abbr": "NPS",
+        "emails": [],
+        "portal": "https://doi.gov/node/1607",
+        "note": "Emailed requests are not accepted; submit through foiaxpresspal.doi.gov or FOIA.gov."
+      },
+      {
+        "title": "Office of Natural Resources Revenue",
+        "abbr": "ONRR",
+        "emails": [],
+        "portal": "https://doi.gov/node/1607",
+        "note": "Emailed requests are not accepted; submit through foiaxpresspal.doi.gov or FOIA.gov."
+      },
+      {
+        "title": "Office of Surface Mining Reclamation and Enforcement",
+        "abbr": "OSMRE",
+        "emails": [],
+        "portal": "https://doi.gov/node/1607",
+        "note": "Emailed requests are not accepted; submit through foiaxpresspal.doi.gov or FOIA.gov."
+      },
+      {
+        "title": "Office of Inspector General",
+        "abbr": "DOI OIG",
+        "emails": [],
+        "portal": "https://www.doioig.gov/complaints-requests/freedom-information-act-foia",
+        "note": "OIG records use their own request form or FOIA.gov."
+      }
+    ]
+  },
+  {
+    "deptName": "Department of Energy",
+    "deptAbbr": "DOE",
+    "components": [
+      {
+        "title": "FOIA Request Service Center",
+        "abbr": "DOE HQ",
+        "emails": [],
+        "portal": "https://www.foia.gov/",
+        "note": "DOE asks that requests be filed through FOIA.gov. Questions only: FOIA-Central@hq.doe.gov, (202) 586-5955."
+      }
+    ]
+  },
+  {
+    "deptName": "Department of Transportation",
+    "deptAbbr": "DOT",
+    "components": [
+      {
+        "title": "Office of the Secretary of Transportation",
+        "abbr": "OST",
+        "emails": ["ost.foia@dot.gov"],
+        "portal": "https://www.transportation.gov/foia",
+        "note": "Address from DOT's FOIA contact listing; confirm on the DOT FOIA page."
+      },
+      {
+        "title": "Federal Aviation Administration",
+        "abbr": "FAA",
+        "emails": ["7-AWA-ARC-FOIA@faa.gov"],
+        "portal": "https://www.transportation.gov/foia",
+        "note": "Address from DOT's FOIA contact listing; confirm on the DOT FOIA page."
+      },
+      {
+        "title": "Federal Highway Administration",
+        "abbr": "FHWA",
+        "emails": ["foia.officer@fhwa.dot.gov"],
+        "portal": "https://www.transportation.gov/foia",
+        "note": "Address from DOT's FOIA contact listing; confirm on the DOT FOIA page."
+      },
+      {
+        "title": "Federal Motor Carrier Safety Administration",
+        "abbr": "FMCSA",
+        "emails": ["foia2@dot.gov"],
+        "portal": "https://www.transportation.gov/foia",
+        "note": "Address from DOT's FOIA contact listing; confirm on the DOT FOIA page."
+      },
+      {
+        "title": "Federal Railroad Administration",
+        "abbr": "FRA",
+        "emails": ["frafoia@dot.gov"],
+        "portal": "https://www.transportation.gov/foia",
+        "note": "Address from DOT's FOIA contact listing; confirm on the DOT FOIA page."
+      },
+      {
+        "title": "Federal Transit Administration",
+        "abbr": "FTA",
+        "emails": ["fta.foia@dot.gov"],
+        "portal": "https://www.transportation.gov/foia",
+        "note": "Address from DOT's FOIA contact listing; confirm on the DOT FOIA page."
+      },
+      {
+        "title": "Maritime Administration",
+        "abbr": "MARAD",
+        "emails": ["foia.marad@dot.gov"],
+        "portal": "https://www.transportation.gov/foia",
+        "note": "Address from DOT's FOIA contact listing; confirm on the DOT FOIA page."
+      },
+      {
+        "title": "Pipeline and Hazardous Materials Safety Administration",
+        "abbr": "PHMSA",
+        "emails": ["PHMSA.FOIA@dot.gov"],
+        "portal": "https://www.transportation.gov/foia",
+        "note": "Address from DOT's FOIA contact listing; confirm on the DOT FOIA page."
+      },
+      {
+        "title": "Office of Inspector General",
+        "abbr": "DOT OIG",
+        "emails": ["oigfoia1@oig.dot.gov"],
+        "portal": "https://www.transportation.gov/foia",
+        "note": "Address from DOT's FOIA contact listing; confirm on the DOT FOIA page."
+      },
+      {
+        "title": "National Highway Traffic Safety Administration",
+        "abbr": "NHTSA",
+        "emails": [],
+        "portal": "https://www.transportation.gov/foia",
+        "note": "No verified FOIA email; see the DOT FOIA page. Phone (202) 366-2870."
+      }
+    ]
+  },
+  {
+    "deptName": "National Aeronautics and Space Administration",
+    "deptAbbr": "NASA",
+    "components": [
+      {
+        "title": "NASA Headquarters FOIA Office",
+        "abbr": "NASA HQ",
+        "emails": ["hq-foia@nasa.gov"],
+        "portal": "https://www.nasa.gov/foia/foia-guidance/",
+        "note": "NASA prefers its online PAL or FOIA.gov; email is also listed. Inspector General records go to the NASA OIG."
+      }
+    ]
+  },
+  {
+    "deptName": "Nuclear Regulatory Commission",
+    "deptAbbr": "NRC",
+    "components": [
+      {
+        "title": "NRC FOIA Office",
+        "abbr": "NRC",
+        "emails": ["FOIA.Resource@nrc.gov"],
+        "portal": "https://www.nrc.gov/reading-rm/foia.html",
+        "note": "Phone (301) 415-7169; also accepts requests via NRC PAL and FOIA.gov."
+      }
+    ]
+  },
+  {
+    "deptName": "Federal Energy Regulatory Commission",
+    "deptAbbr": "FERC",
+    "components": [
+      {
+        "title": "FERC FOIA Office",
+        "abbr": "FERC",
+        "emails": ["foia@ferc.gov"],
+        "note": "CEII requests go to ceii@ferc.gov, not this address."
+      }
+    ]
+  },
+  {
+    "deptName": "Peace Corps",
+    "deptAbbr": "PC",
+    "components": [
+      {
+        "title": "Peace Corps FOIA/Privacy Act Office",
+        "abbr": "PC",
+        "emails": ["foia@peacecorps.gov"],
+        "portal": "https://www.peacecorps.gov/about-the-agency/foia/",
+        "note": "Inspector General records: foia@peacecorpsoig.gov."
+      }
+    ]
+  },
+  {
+    "deptName": "Social Security Administration",
+    "deptAbbr": "SSA",
+    "components": [
+      {
+        "title": "SSA FOIA Office",
+        "abbr": "SSA",
+        "emails": [],
+        "portal": "https://www.foia.gov/",
+        "note": "No verified FOIA email in this directory; submit through FOIA.gov."
+      }
+    ]
+  },
+  {
+    "deptName": "General Services Administration",
+    "deptAbbr": "GSA",
+    "components": [
+      {
+        "title": "GSA FOIA Office",
+        "abbr": "GSA",
+        "emails": [],
+        "portal": "https://www.foia.gov/",
+        "note": "No verified FOIA email in this directory; submit through FOIA.gov."
+      }
+    ]
+  },
+  {
+    "deptName": "Small Business Administration",
+    "deptAbbr": "SBA",
+    "components": [
+      {
+        "title": "SBA FOIA Office",
+        "abbr": "SBA",
+        "emails": [],
+        "portal": "https://www.foia.gov/",
+        "note": "No verified FOIA email in this directory; submit through FOIA.gov."
+      }
+    ]
+  },
+  {
+    "deptName": "Federal Communications Commission",
+    "deptAbbr": "FCC",
+    "components": [
+      {
+        "title": "FCC FOIA Office",
+        "abbr": "FCC",
+        "emails": [],
+        "portal": "https://www.foia.gov/",
+        "note": "No verified FOIA email in this directory; submit through FOIA.gov."
+      }
+    ]
+  },
+  {
+    "deptName": "Federal Trade Commission",
+    "deptAbbr": "FTC",
+    "components": [
+      {
+        "title": "FTC FOIA Office",
+        "abbr": "FTC",
+        "emails": [],
+        "portal": "https://www.foia.gov/",
+        "note": "No verified FOIA email in this directory; submit through FOIA.gov."
+      }
+    ]
+  },
+  {
+    "deptName": "Central Intelligence Agency",
+    "deptAbbr": "CIA",
+    "components": [
+      {
+        "title": "CIA FOIA Office",
+        "abbr": "CIA",
+        "emails": [],
+        "portal": "https://www.foia.gov/",
+        "note": "No verified FOIA email in this directory; submit through FOIA.gov."
+      }
+    ]
+  },
+  {
+    "deptName": "Office of the Director of National Intelligence",
+    "deptAbbr": "ODNI",
+    "components": [
+      {
+        "title": "ODNI FOIA Office",
+        "abbr": "ODNI",
+        "emails": [],
+        "portal": "https://www.foia.gov/",
+        "note": "No verified FOIA email in this directory; submit through FOIA.gov."
+      }
+    ]
+  },
+  {
+    "deptName": "Federal Deposit Insurance Corporation",
+    "deptAbbr": "FDIC",
+    "components": [
+      {
+        "title": "FDIC FOIA Office",
+        "abbr": "FDIC",
+        "emails": [],
+        "portal": "https://www.foia.gov/",
+        "note": "No verified FOIA email in this directory; submit through FOIA.gov."
+      }
+    ]
+  },
+  {
+    "deptName": "Board of Governors of the Federal Reserve System",
+    "deptAbbr": "FRB",
+    "components": [
+      {
+        "title": "Federal Reserve Board FOIA Office",
+        "abbr": "FRB",
+        "emails": [],
+        "portal": "https://www.foia.gov/",
+        "note": "No verified FOIA email in this directory; submit through FOIA.gov."
+      }
+    ]
+  },
+  {
+    "deptName": "Consumer Financial Protection Bureau",
+    "deptAbbr": "CFPB",
+    "components": [
+      {
+        "title": "CFPB FOIA Office",
+        "abbr": "CFPB",
+        "emails": [],
+        "portal": "https://www.foia.gov/",
+        "note": "No verified FOIA email in this directory; submit through FOIA.gov."
+      }
+    ]
+  },
+  {
+    "deptName": "National Archives and Records Administration",
+    "deptAbbr": "NARA",
+    "components": [
+      {
+        "title": "NARA FOIA Office",
+        "abbr": "NARA",
+        "emails": [],
+        "portal": "https://www.foia.gov/",
+        "note": "No verified FOIA email in this directory; submit through FOIA.gov."
+      }
+    ]
+  },
+  {
+    "deptName": "U.S. Postal Service",
+    "deptAbbr": "USPS",
+    "components": [
+      {
+        "title": "USPS FOIA Office",
+        "abbr": "USPS",
+        "emails": [],
+        "portal": "https://www.foia.gov/",
+        "note": "No verified FOIA email in this directory; submit through FOIA.gov."
+      }
+    ]
+  },
+  {
+    "deptName": "Equal Employment Opportunity Commission",
+    "deptAbbr": "EEOC",
+    "components": [
+      {
+        "title": "EEOC FOIA Office",
+        "abbr": "EEOC",
+        "emails": [],
+        "portal": "https://www.foia.gov/",
+        "note": "No verified FOIA email in this directory; submit through FOIA.gov."
+      }
+    ]
+  },
+  {
+    "deptName": "National Labor Relations Board",
+    "deptAbbr": "NLRB",
+    "components": [
+      {
+        "title": "NLRB FOIA Office",
+        "abbr": "NLRB",
+        "emails": [],
+        "portal": "https://www.foia.gov/",
+        "note": "No verified FOIA email in this directory; submit through FOIA.gov."
+      }
+    ]
+  },
+  {
+    "deptName": "Federal Election Commission",
+    "deptAbbr": "FEC",
+    "components": [
+      {
+        "title": "FEC FOIA Office",
+        "abbr": "FEC",
+        "emails": [],
+        "portal": "https://www.foia.gov/",
+        "note": "No verified FOIA email in this directory; submit through FOIA.gov."
+      }
+    ]
+  },
+  {
+    "deptName": "National Science Foundation",
+    "deptAbbr": "NSF",
+    "components": [
+      {
+        "title": "NSF FOIA Office",
+        "abbr": "NSF",
+        "emails": [],
+        "portal": "https://www.foia.gov/",
+        "note": "No verified FOIA email in this directory; submit through FOIA.gov."
+      }
+    ]
+  },
+  {
+    "deptName": "Consumer Product Safety Commission",
+    "deptAbbr": "CPSC",
+    "components": [
+      {
+        "title": "CPSC FOIA Office",
+        "abbr": "CPSC",
+        "emails": [],
+        "portal": "https://www.foia.gov/",
+        "note": "No verified FOIA email in this directory; submit through FOIA.gov."
+      }
+    ]
+  },
+  {
+    "deptName": "Department of Housing and Urban Development",
+    "deptAbbr": "HUD",
+    "components": [
+      {
+        "title": "HUD FOIA Office",
+        "abbr": "HUD",
+        "emails": [],
+        "portal": "https://www.foia.gov/",
+        "note": "No verified FOIA email in this directory; submit through FOIA.gov."
       }
     ]
   }

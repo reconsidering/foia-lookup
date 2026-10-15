@@ -34,4 +34,6 @@ python -m http.server 8000
 
 Open http://localhost:8000/FOIA_Lookup.html. Opening the HTML directly with a `file://` URL may block JSON loading. Each database loads independently; a failed database displays a loading error when its tab is selected.
 
+Contacts may carry a `portal` URL (shown as a link) and a `note` (for example, "portal only" or "no verified email"). Both fields are optional. Entries pointing to FOIA.gov have no verified direct contact in this directory. Federal additions were checked against web search results only; agency pages could not be fetched directly, so confirm before relying on them.
+
 The bundled contacts and statute summaries have no source URLs or verification dates. Confirm details with the relevant agency before relying on them.

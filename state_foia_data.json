@@ -370,73 +370,97 @@
         "title": "Metropolitan Police Department",
         "abbr": "MPD",
         "phone": "(202) 727-3721",
-        "emails": ["foia.admin@dc.gov"]
+        "emails": ["foia.admin@dc.gov"],
+        "portal": "https://dc.gov/page/freedom-information-act-foia",
+        "note": "Email not independently verified. DC encourages online submission via the DC Government FOIA portal; current FOIA Officer list: https://open-dc.gov/node/2320. MPD FOIA Officer phone (202) 727-3721; requests are taken through the portal."
       },
       {
         "title": "Office of the Attorney General for the District of Columbia",
         "abbr": "OAG DC",
         "phone": "(202) 807-0363",
-        "emails": ["runako.kumbula-allsopp@dc.gov"]
+        "emails": [],
+        "portal": "https://dc.gov/page/freedom-information-act-foia",
+        "note": "Previously listed email was a named individual and could not be verified, so it was removed. Submit through the DC Government FOIA portal, or find the current FOIA Officer at https://open-dc.gov/node/2320. Note: OAG mainly handles FOIA litigation and advice; each agency processes its own records. OAG FOIA page: https://oag.dc.gov/about-oag/open-government-and-foia-oag"
       },
       {
         "title": "Mayor's Office of Legal Counsel",
         "abbr": "MOLC",
         "phone": "(202) 724-7681",
-        "emails": ["eom.foia@dc.gov"]
+        "emails": ["eom.foia@dc.gov"],
+        "portal": "https://dc.gov/page/freedom-information-act-foia",
+        "note": "Email not independently verified. DC encourages online submission via the DC Government FOIA portal; current FOIA Officer list: https://open-dc.gov/node/2320. MOLC also decides administrative FOIA appeals to the Mayor (not appeals from the Attorney General or D.C. Council)."
       },
       {
         "title": "District Department of Transportation",
         "abbr": "DDOT",
         "phone": "(202) 671-5114",
-        "emails": ["karen.calmeise@dc.gov"]
+        "emails": [],
+        "portal": "https://dc.gov/page/freedom-information-act-foia",
+        "note": "Previously listed email was a named individual and could not be verified, so it was removed. Submit through the DC Government FOIA portal, or find the current FOIA Officer at https://open-dc.gov/node/2320."
       },
       {
         "title": "Department of Corrections",
         "abbr": "DOC",
         "phone": "(202) 671-2055",
-        "emails": ["segun.obebe@dc.gov"]
+        "emails": [],
+        "portal": "https://dc.gov/page/freedom-information-act-foia",
+        "note": "Previously listed email was a named individual and could not be verified, so it was removed. Submit through the DC Government FOIA portal, or find the current FOIA Officer at https://open-dc.gov/node/2320."
       },
       {
         "title": "Department of Health",
         "abbr": "DC Health",
         "phone": "(202) 442-5977",
-        "emails": ["phillip.husband@dc.gov"]
+        "emails": [],
+        "portal": "https://dc.gov/page/freedom-information-act-foia",
+        "note": "Previously listed email was a named individual and could not be verified, so it was removed. Submit through the DC Government FOIA portal, or find the current FOIA Officer at https://open-dc.gov/node/2320."
       },
       {
         "title": "Department of Energy and Environment",
         "abbr": "DOEE",
         "phone": "(202) 481-3845",
-        "emails": ["myra.campbell@dc.gov"]
+        "emails": [],
+        "portal": "https://dc.gov/page/freedom-information-act-foia",
+        "note": "Previously listed email was a named individual and could not be verified, so it was removed. Submit through the DC Government FOIA portal, or find the current FOIA Officer at https://open-dc.gov/node/2320."
       },
       {
         "title": "Department of General Services",
         "abbr": "DGS",
         "phone": "(202) 727-2800",
-        "emails": ["foia.dgs@dc.gov"]
+        "emails": ["foia.dgs@dc.gov"],
+        "portal": "https://dc.gov/page/freedom-information-act-foia",
+        "note": "Email not independently verified. DC encourages online submission via the DC Government FOIA portal; current FOIA Officer list: https://open-dc.gov/node/2320."
       },
       {
         "title": "Homeland Security and Emergency Management Agency",
         "abbr": "HSEMA",
         "phone": "(202) 481-3188",
-        "emails": ["hsema.foia@dc.gov"]
+        "emails": ["hsema.foia@dc.gov"],
+        "portal": "https://dc.gov/page/freedom-information-act-foia",
+        "note": "Email not independently verified. DC encourages online submission via the DC Government FOIA portal; current FOIA Officer list: https://open-dc.gov/node/2320."
       },
       {
         "title": "Department of Buildings",
         "abbr": "DOB",
         "phone": "(202) 671-3500",
-        "emails": ["erin.roberts@dc.gov"]
+        "emails": [],
+        "portal": "https://dc.gov/page/freedom-information-act-foia",
+        "note": "Previously listed email was a named individual and could not be verified, so it was removed. Submit through the DC Government FOIA portal, or find the current FOIA Officer at https://open-dc.gov/node/2320."
       },
       {
         "title": "District of Columbia Public Schools",
         "abbr": "DCPS",
         "phone": "(202) 442-5000",
-        "emails": ["eboni.govan@k12.dc.gov"]
+        "emails": [],
+        "portal": "https://dc.gov/page/freedom-information-act-foia",
+        "note": "Previously listed email was a named individual and could not be verified, so it was removed. Submit through the DC Government FOIA portal, or find the current FOIA Officer at https://open-dc.gov/node/2320."
       },
       {
         "title": "Department of Human Services",
         "abbr": "DHS",
         "phone": "(202) 671-4452",
-        "emails": ["folashade.bamikole@dc.gov"]
+        "emails": [],
+        "portal": "https://dc.gov/page/freedom-information-act-foia",
+        "note": "Previously listed email was a named individual and could not be verified, so it was removed. Submit through the DC Government FOIA portal, or find the current FOIA Officer at https://open-dc.gov/node/2320."
       }
     ]
   },
