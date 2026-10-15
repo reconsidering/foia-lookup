@@ -18,6 +18,23 @@ async function run(failFederal=false) {
  search(' FBI ');assert.equal(nodes.get('resultsList').children.length,1);assert.match(nodes.get('commaEmails').value,/fbi.gov/);
  search('California','state');assert.equal(nodes.get('resultsList').children.length,states.find(s=>s.state==='California').agencies.length);assert.equal(nodes.get('stateInfoBox').style.display,'block');
  search('CPRA','state');assert.ok(nodes.get('resultsList').children.length);
+ search('Alabama State Department of Education','state');
+ assert.equal(nodes.get('resultsList').children.length,1);
+ assert.equal(nodes.get('commaEmails').value,'');assert.equal(nodes.get('semicolonEmails').value,'');
+ let card=nodes.get('resultsList').children[0];
+ assert.ok(card.children.some(n=>/Portal only/.test(n.textContent)));
+ assert.ok(card.children.some(n=>n.textContent==='Request portal: ' && n.children[0].href==='https://alsde.mycusthelp.com/'));
+ assert.ok(card.children.some(n=>n.textContent==='Source: ' && /checked \d{4}-\d{2}-\d{2}/.test(n.children[0].textContent)));
+ search('Unemployment Insurance Agency','state');
+ assert.equal(nodes.get('resultsList').children.length,1);
+ assert.ok(nodes.get('resultsList').children[0].children.some(n=>n.children.some(link=>link.href==='https://forms.leo.state.mi.us/foia/')));
+ search('Alabama Department of Finance','state');
+ assert.equal(nodes.get('commaEmails').value,'');
+ assert.ok(nodes.get('resultsList').children[0].children.some(n=>/No verified/.test(n.textContent)));
+ search('Maine','state');
+ assert.equal(nodes.get('commaEmails').value.toLowerCase().split(', ').filter(email=>email==='foaarequest.dafs@maine.gov').length,1);
+ search('Wisconsin Department of Children and Families','state');
+ assert.equal(nodes.get('commaEmails').value.toLowerCase(),'dcfrecordsrequest@wisconsin.gov');
  search('District of Columbia','state');assert.ok(nodes.get('resultsList').children.length);
  search('Virginia','state');assert.ok(nodes.get('stateDetails').children.some(n=>/Yes/.test(n.textContent)));
  await context.copyToClipboard('commaEmails');assert.equal(context.copied,nodes.get('commaEmails').value);
@@ -31,5 +48,12 @@ async function run(failFederal=false) {
  nodes.get('searchInput').value='TEST';context.showSuggestions();assert.equal(nodes.get('suggestionsDropdown').children.length,2);
  assert.throws(()=>context.validateDatabase({},'federal'));
  assert.throws(()=>context.validateDatabase([{deptName:'bad',components:[{title:'bad',emails:[3]}]}],'federal'));
+ assert.throws(()=>context.validateDatabase([{state:'bad',agencies:[{title:'bad',emails:[],sourceUrl:3}]}],'state'));
+ assert.throws(()=>context.validateDatabase([{state:'bad',agencies:[{title:'bad',emails:[],sourceChecked:'yesterday'}]}],'state'));
+ assert.throws(()=>context.validateDatabase([{state:'bad',agencies:[{title:'bad',emails:[],portalLabel:{}}]}],'state'));
+ vm.runInContext(`STATE_DATABASE=[{state:'Fixture',agencies:[{title:'Missing contact',emails:[],sourceUrl:'javascript:bad()',portal:'javascript:bad()',portalLabel:'<img onerror=bad()>'}]}];`,context);
+ search('Missing contact','state');card=nodes.get('resultsList').children[0];
+ assert.ok(card.children.some(n=>/No verified contact information/.test(n.textContent)));
+ assert.ok(!card.children.some(n=>n.children.length));
 }
 Promise.resolve().then(()=>run()).then(()=>run(true)).then(()=>console.log('PASS: startup, search, grouping, state metadata, empty results, deduplication, safe rendering, suggestions, clipboard, validation, and independent loading')).catch(error=>{console.error(error);process.exitCode=1;});
