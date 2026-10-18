@@ -258,7 +258,7 @@
 </head>
 <body>
 
-<div class="container">
+<main class="container">
     <h1>Federal & State FOIA Officer Lookup Tool</h1>
     
     <div class="tab-container">
@@ -284,7 +284,7 @@
     <div id="outputSection" class="output-section">
         <div class="block-container">
             <div class="block-header">
-                <span class="block-title">Comma-Separated Emails (Gmail, Webmail)</span>
+                <label class="block-title" for="commaEmails">Comma-Separated Emails (Gmail, Webmail)</label>
                 <button class="copy-btn" onclick="copyToClipboard('commaEmails')">Copy to Clipboard</button>
             </div>
             <textarea id="commaEmails" readonly></textarea>
@@ -292,7 +292,7 @@
 
         <div class="block-container">
             <div class="block-header">
-                <span class="block-title">Semicolon-Separated Emails (Outlook, Desktop Apps)</span>
+                <label class="block-title" for="semicolonEmails">Semicolon-Separated Emails (Outlook, Desktop Apps)</label>
                 <button class="copy-btn" onclick="copyToClipboard('semicolonEmails')">Copy to Clipboard</button>
             </div>
             <textarea id="semicolonEmails" readonly></textarea>
@@ -301,7 +301,7 @@
         <div id="resultsHeader" class="results-header"></div>
         <div id="resultsList" class="results-list"></div>
     </div>
-</div>
+</main>
 
 <script>
     let currentTab = 'federal';

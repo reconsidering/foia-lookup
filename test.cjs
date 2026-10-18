@@ -5,6 +5,16 @@ const html = fs.readFileSync(__dirname + '/FOIA_Lookup.html', 'utf8');
 const script = html.match(/<script>([\s\S]*?)<\/script>/)[1];
 const federal = JSON.parse(fs.readFileSync(__dirname + '/foia_data.json'));
 const states = JSON.parse(fs.readFileSync(__dirname + '/state_foia_data.json'));
+// These output fields remain form controls even when readonly or CSS is disabled.
+for (const [, attributes] of html.matchAll(/<textarea\b([^>]*)>/g)) {
+ const id = attributes.match(/\bid="([^"]+)"/)?.[1];
+ assert.ok(id, 'Each email output needs a unique id for its visible label');
+ const labels = [...html.matchAll(/<label\b([^>]*)>([^<]+)<\/label>/g)];
+ assert.ok(labels.some(([, attrs, text]) => attrs.match(/\bfor="([^"]+)"/)?.[1] === id && text.trim()), 'Missing visible form label for ' + id);
+ assert.equal([...html.matchAll(/\bid="([^"]+)"/g)].filter(([, value]) => value === id).length, 1);
+}
+assert.equal([...html.matchAll(/<main\b/g)].length, 1, 'The page needs one main landmark');
+assert.match(html, /<main\b[^>]*>[\s\S]*<h1\b[\s\S]*id="resultsList"[\s\S]*<\/main>/);
 function element() { return {style:{},textContent:'',value:'',children:[],classList:{toggle(){}},replaceChildren(){this.children=[];},appendChild(n){this.children.push(n);},addEventListener(){},focus(){this.focused=true;},select(){this.selected=true;}}; }
 async function run(failFederal=false) {
  const nodes = new Map();
