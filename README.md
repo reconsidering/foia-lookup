@@ -11,7 +11,7 @@ A lightweight, single-page web application designed to help journalists, researc
 - **Instant Email Block Generators:** Generates clean, de-duplicated email lists in both comma-separated (Gmail/Webmail) and semicolon-separated (Outlook) formats with single-click copying.
 - **Auto-Suggest Search:** Type ahead to instantly match full department names, sub-components, or standard acronyms (e.g., *OPM*, *FBI*, *CPRA*).
 - **Statute Guidance:** Selecting a state displays key legal metadata, including statute citations, response timeframes, and residency requirement warnings.
-- **Zero Dependencies:** Pure client-side HTML, CSS, and vanilla JavaScript—runs instantly in any browser without build tools. Serve the files over HTTP so the browser can load the JSON databases.
+- **Zero Dependencies:** Pure client-side HTML, CSS, and vanilla JavaScript—runs instantly in any browser without build tools. Web fonts load from Google Fonts when available and fall back to system fonts offline. Serve the files over HTTP so the browser can load the JSON databases.
 
 ---
 

@@ -3,311 +3,319 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Federal & State FOIA Officer Lookup Tool</title>
+    <title>FOIA Lookup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap">
     <style>
         :root {
-            --primary: #003366;
-            --primary-hover: #002244;
-            --bg: #f4f6f9;
-            --card-bg: #ffffff;
-            --text: #222222;
-            --border: #cccccc;
+            --paper: #f7f4ee;
+            --card: #ffffff;
+            --ink: #1f1d1a;
+            --ink-2: #3d3933;
+            --muted: #5b554c;
+            --rule: #e2dccf;
+            --accent: #8a3b12;
+            --accent-hover: #5e2509;
+            --warn-bg: #fbeee4;
+            --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+            --sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
         }
+
+        * { box-sizing: border-box; }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
             margin: 0;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        h1 {
-            color: var(--primary);
-            margin-top: 0;
-            font-size: 24px;
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 10px;
-        }
-
-        .tab-container {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .tab-btn {
-            padding: 10px 20px;
-            background-color: #e0e0e0;
-            color: #333;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            font-size: 15px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .tab-btn.active {
-            background-color: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        .status-banner {
-            padding: 10px 15px;
-            border-radius: 4px;
-            font-size: 14px;
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-
-        .status-loading { background: #e3f2fd; color: #0d47a1; border: 1px solid #bbdefb; }
-        .status-success { background: #e8f5e9; color: #1b5e20; border: 1px solid #c8e6c9; }
-        .status-warning { background: #fff3e0; color: #e65100; border: 1px solid #ffe0b2; }
-
-        .search-container {
-            position: relative;
-            margin-bottom: 25px;
-        }
-
-        .search-box {
-            display: flex;
-            gap: 10px;
-        }
-
-        input[type="text"] {
-            flex: 1;
-            min-width: 0;
-            padding: 12px;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--sans);
             font-size: 16px;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            outline: none;
+            line-height: 1.45;
         }
 
-        input[type="text"]:focus {
-            border-color: var(--primary);
+        a { color: var(--accent); }
+        a:hover { color: var(--accent-hover); }
+
+        :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+        .visually-hidden {
+            position: absolute; width: 1px; height: 1px; overflow: hidden;
+            clip: rect(0 0 0 0); white-space: nowrap;
         }
 
-        .search-btn {
-            padding: 12px 24px;
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.2s;
+        .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* Masthead */
+        .masthead { border-bottom: 2px solid var(--ink); }
+
+        .masthead-top {
+            display: flex; flex-wrap: wrap; gap: 16px;
+            align-items: center; justify-content: space-between;
+            padding-top: 20px; padding-bottom: 12px;
         }
 
-        .search-btn:hover {
-            background-color: var(--primary-hover);
+        .brand {
+            font-family: var(--serif); font-size: 30px; font-weight: 600;
+            letter-spacing: -0.01em; margin: 0;
         }
+
+        .search-container { position: relative; flex: 0 1 480px; min-width: 0; }
+
+        .search-box { display: flex; gap: 8px; }
+
+        .search-box input {
+            flex: 1; min-width: 0; height: 46px; padding: 0 14px;
+            font: inherit; font-size: 16px; color: var(--ink);
+            background: var(--card); border: 1px solid var(--ink); border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            min-height: 44px; padding: 0 16px;
+            font: inherit; font-size: 14px; font-weight: 600; text-decoration: none;
+            border-radius: 2px; cursor: pointer; white-space: nowrap;
+        }
+
+        .btn-dark { background: var(--ink); color: var(--paper); border: 1px solid var(--ink); }
+        .btn-dark:hover { background: #000; color: var(--paper); }
+        .btn-accent { background: var(--accent); color: #fff; border: 1px solid var(--accent); }
+        .btn-accent:hover { background: var(--accent-hover); color: #fff; }
+        .btn-outline { background: var(--card); color: var(--ink); border: 1px solid var(--ink); }
+        .btn-outline:hover { background: var(--paper); color: var(--ink); }
+
+        .search-box .btn { height: 46px; font-size: 15px; }
 
         .suggestions-dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 120px;
-            background: white;
-            border: 1px solid var(--border);
-            border-top: none;
-            border-radius: 0 0 4px 4px;
-            max-height: 250px;
-            overflow-y: auto;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            display: none;
+            position: absolute; top: 100%; left: 0; right: 0; z-index: 10;
+            background: var(--card); border: 1px solid var(--ink); border-top: none;
+            max-height: 280px; overflow-y: auto; display: none;
+            box-shadow: 0 6px 16px rgba(31, 29, 26, 0.12);
         }
 
         .suggestion-item {
-            padding: 10px 15px;
-            cursor: pointer;
-            border-bottom: 1px solid #eee;
+            display: block; width: 100%; text-align: left;
+            padding: 10px 14px; font: inherit; font-size: 15px; color: var(--ink);
+            background: var(--card); border: 0; border-bottom: 1px solid var(--rule); cursor: pointer;
         }
 
-        .suggestion-item:hover {
-            background-color: #f0f4f8;
+        .suggestion-item:hover, .suggestion-item:focus-visible { background: var(--paper); }
+
+        .tabs { display: flex; gap: 24px; }
+
+        .tab-btn {
+            padding: 12px 0; font: inherit; font-size: 15px; color: var(--muted);
+            background: none; border: 0; border-bottom: 3px solid transparent; cursor: pointer;
         }
 
-        .suggestion-type {
-            font-size: 11px;
-            text-transform: uppercase;
-            color: var(--primary);
-            font-weight: bold;
-            margin-left: 8px;
+        .tab-btn.active { color: var(--ink); font-weight: 600; border-bottom-color: var(--accent); }
+
+        .status-banner { font-size: 13px; color: var(--muted); padding: 10px 0 0; }
+        .status-warning { color: var(--accent); font-weight: 600; }
+
+        /* Layout */
+        .layout {
+            display: flex; flex-wrap: wrap; gap: 36px; align-items: flex-start;
+            padding-top: 28px; padding-bottom: 64px;
         }
 
-        .state-info-box {
-            display: none;
-            background: #eef2f7;
-            border-left: 4px solid var(--primary);
-            padding: 12px 15px;
-            margin-bottom: 20px;
-            border-radius: 4px;
+        .rail { flex: 1 1 220px; min-width: 0; max-width: 260px; }
+
+        .rail-label, .kicker {
+            font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+            text-transform: uppercase; color: var(--muted);
         }
 
-        .state-statute-title {
-            font-weight: bold;
-            color: var(--primary);
-            font-size: 16px;
+        .rail-list {
+            margin-top: 10px; max-height: 70vh; overflow-y: auto;
+            display: flex; flex-direction: column;
         }
 
-        .state-statute-details {
-            font-size: 13px;
-            color: #444;
-            margin-top: 4px;
+        .rail-item {
+            text-align: left; padding: 9px 0; font: inherit; font-size: 15px;
+            color: var(--ink); background: none; border: 0;
+            border-bottom: 1px solid var(--rule); cursor: pointer;
         }
 
-        .output-section {
-            margin-top: 20px;
-            display: none;
+        .rail-item:hover { color: var(--accent); }
+        .rail-item.active { color: var(--accent); font-weight: 600; }
+
+        main { flex: 999 1 560px; min-width: 0; }
+
+        .empty-state { padding: 8px 0; }
+        .empty-state h2 { font-family: var(--serif); font-size: 36px; font-weight: 600; margin: 6px 0 8px; line-height: 1.1; }
+        .empty-state p { color: var(--ink-2); margin: 0; max-width: 560px; }
+
+        .output-section { display: none; }
+
+        .page-title {
+            margin: 6px 0 4px; font-family: var(--serif);
+            font-size: 48px; line-height: 1.05; font-weight: 600;
         }
 
-        .block-container {
-            background-color: #eef2f7;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 15px;
-            margin-bottom: 25px;
+        /* Statute block */
+        .state-info-box { display: none; margin-bottom: 28px; }
+
+        .law { margin-bottom: 20px; }
+        .law:last-child { margin-bottom: 0; }
+
+        .law-name { margin: 0 0 12px; font-size: 17px; color: var(--ink-2); }
+        .law-name .citation { font-family: var(--mono); font-size: 15px; }
+
+        .law-facts {
+            display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+            margin: 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink);
         }
 
-        .block-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
+        .law-facts > div { padding: 16px; border-left: 1px solid var(--rule); }
+        .law-facts > div:first-child { padding-left: 0; border-left: 0; }
+        .law-facts dt { font-size: 13px; color: var(--muted); }
+        .law-facts dd { margin: 4px 0 0; font-family: var(--serif); font-size: 24px; font-weight: 600; line-height: 1.2; }
+        .law-facts dd.small { font-family: var(--sans); font-size: 15px; font-weight: 400; line-height: 1.4; }
+
+        /* Copy panel */
+        .copy-panel {
+            background: var(--card); border: 1px solid var(--rule);
+            padding: 20px; margin-bottom: 28px;
         }
 
-        .block-title {
-            font-weight: bold;
-            font-size: 14px;
-            color: var(--primary);
-        }
+        .copy-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; }
+        .copy-title { margin: 0; font-size: 16px; }
+        .copy-sub { font-size: 14px; color: var(--muted); margin-top: 2px; }
+        .copy-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+        .copy-panel details { margin-top: 14px; }
+        .copy-panel summary { cursor: pointer; font-size: 14px; color: var(--accent); }
+
+        .copy-panel label { display: block; font-size: 13px; color: var(--muted); margin: 12px 0 4px; }
 
         textarea {
-            width: 100%;
-            height: 70px;
-            padding: 8px;
-            box-sizing: border-box;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            font-family: monospace;
-            font-size: 13px;
-            resize: vertical;
+            width: 100%; height: 72px; padding: 8px;
+            font-family: var(--mono); font-size: 13px; color: var(--ink);
+            background: var(--paper); border: 1px solid var(--rule); border-radius: 2px; resize: vertical;
         }
 
-        .copy-btn {
-            padding: 6px 12px;
-            font-size: 13px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
+        /* Agency list */
+        .list-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 8px; }
+        .results-header { margin: 0; font-family: var(--serif); font-size: 26px; font-weight: 600; }
+        .results-summary { font-size: 14px; color: var(--ink-2); }
+
+        .results-list { border-top: 1px solid var(--ink); }
+
+        .agency-row {
+            display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 2fr) minmax(0, 1fr);
+            gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--rule); align-items: start;
         }
 
-        .copy-btn:hover {
-            background-color: #218838;
-        }
+        .agency-name { font-weight: 600; font-size: 16px; }
+        .agency-meta { font-size: 13px; color: var(--muted); margin-top: 2px; }
+        .agency-email { font-family: var(--mono); font-size: 14px; overflow-wrap: anywhere; }
+        .agency-none { font-size: 14px; color: var(--ink-2); }
+        .agency-note { font-size: 13px; color: var(--muted); margin-top: 4px; overflow-wrap: anywhere; }
+        .agency-source { font-size: 13px; margin-top: 4px; }
+        .agency-action { text-align: right; }
 
-        .results-header {
-            font-size: 18px;
-            font-weight: bold;
-            color: var(--primary);
-            margin-bottom: 15px;
-            padding-bottom: 5px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .card {
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 15px;
-            margin-bottom: 12px;
-            background-color: #fff;
-        }
-
-        .card-title {
-            font-weight: bold;
-            font-size: 16px;
-            color: var(--primary);
-            margin-bottom: 6px;
-        }
-
-        .card-note { font-style: italic; color: #7a4b00; }
-
-        .card-detail {
-            font-size: 14px;
-            margin: 4px 0;
-            color: #444;
+        @media (max-width: 760px) {
+            .wrap { padding: 0 16px; }
+            .brand { font-size: 26px; }
+            .search-container { flex-basis: 100%; }
+            .rail { max-width: none; flex-basis: 100%; order: 2; }
+            .rail-list { max-height: 220px; }
+            .page-title { font-size: 36px; }
+            .law-facts { grid-template-columns: minmax(0, 1fr); }
+            .law-facts > div { padding: 12px 0; border-left: 0; border-top: 1px solid var(--rule); }
+            .law-facts > div:first-child { border-top: 0; }
+            .agency-row { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+            .agency-action { text-align: left; }
         }
     </style>
 </head>
 <body>
 
-<main class="container">
-    <h1>Federal & State FOIA Officer Lookup Tool</h1>
-    
-    <div class="tab-container">
-        <button id="tabFederal" class="tab-btn active" onclick="switchTab('federal')">Federal FOIA</button>
-        <button id="tabState" class="tab-btn" onclick="switchTab('state')">State & D.C. Public Records</button>
-    </div>
-
-    <div id="statusBanner" role="status" class="status-banner status-loading">Loading FOIA database files...</div>
-
-    <div class="search-container">
-        <div class="search-box">
-            <input type="text" id="searchInput" aria-label="Search departments and agencies" placeholder="Type federal department or agency name..." autocomplete="off">
-            <button class="search-btn" onclick="executeSearch()">Search</button>
-        </div>
-        <div id="suggestionsDropdown" class="suggestions-dropdown"></div>
-    </div>
-
-    <div id="stateInfoBox" class="state-info-box">
-        <div id="stateStatuteName" class="state-statute-title"></div>
-        <div id="stateDetails" class="state-statute-details"></div>
-    </div>
-
-    <div id="outputSection" class="output-section">
-        <div class="block-container">
-            <div class="block-header">
-                <label class="block-title" for="commaEmails">Comma-Separated Emails (Gmail, Webmail)</label>
-                <button class="copy-btn" onclick="copyToClipboard('commaEmails')">Copy to Clipboard</button>
+<header class="masthead">
+    <div class="wrap">
+        <div class="masthead-top">
+            <p class="brand">FOIA Lookup</p>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="searchInput" aria-label="Search departments and agencies" placeholder="Department, agency or acronym" autocomplete="off">
+                    <button class="btn btn-dark" type="button" onclick="executeSearch()">Search</button>
+                </div>
+                <div id="suggestionsDropdown" class="suggestions-dropdown"></div>
             </div>
-            <textarea id="commaEmails" readonly></textarea>
         </div>
-
-        <div class="block-container">
-            <div class="block-header">
-                <label class="block-title" for="semicolonEmails">Semicolon-Separated Emails (Outlook, Desktop Apps)</label>
-                <button class="copy-btn" onclick="copyToClipboard('semicolonEmails')">Copy to Clipboard</button>
-            </div>
-            <textarea id="semicolonEmails" readonly></textarea>
-        </div>
-
-        <div id="resultsHeader" class="results-header"></div>
-        <div id="resultsList" class="results-list"></div>
+        <nav class="tabs" aria-label="Jurisdiction">
+            <button id="tabFederal" type="button" class="tab-btn active" onclick="switchTab('federal')">Federal</button>
+            <button id="tabState" type="button" class="tab-btn" onclick="switchTab('state')">States &amp; D.C.</button>
+        </nav>
     </div>
-</main>
+</header>
+
+<div class="wrap">
+    <div id="statusBanner" role="status" class="status-banner">Loading FOIA database files...</div>
+
+    <div class="layout">
+        <nav class="rail" aria-labelledby="railLabel">
+            <div id="railLabel" class="rail-label">Departments</div>
+            <div id="railList" class="rail-list"></div>
+        </nav>
+
+        <main>
+            <div id="emptyState" class="empty-state">
+                <div class="kicker">Start here</div>
+                <h2>Find the right records office</h2>
+                <p>Search a department, agency, state or acronym, or pick one from the list. You get every listed contact, portal link and a ready-to-paste email list.</p>
+            </div>
+
+            <div id="outputSection" class="output-section">
+                <div id="pageKicker" class="kicker"></div>
+                <h1 id="stateStatuteName" class="page-title"></h1>
+
+                <div id="stateInfoBox" class="state-info-box">
+                    <div id="stateDetails"></div>
+                </div>
+
+                <section id="copyPanel" class="copy-panel" aria-labelledby="copyTitle">
+                    <div class="copy-row">
+                        <div>
+                            <h2 id="copyTitle" class="copy-title"></h2>
+                            <div id="copySub" class="copy-sub"></div>
+                        </div>
+                        <div class="copy-actions">
+                            <button id="copyComma" class="btn btn-accent" type="button" onclick="copyToClipboard('commaEmails')">Copy for Gmail</button>
+                            <button id="copySemicolon" class="btn btn-outline" type="button" onclick="copyToClipboard('semicolonEmails')">Copy for Outlook</button>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>Show addresses</summary>
+                        <label for="commaEmails">Comma-separated (Gmail, webmail)</label>
+                        <textarea id="commaEmails" readonly></textarea>
+                        <label for="semicolonEmails">Semicolon-separated (Outlook, desktop apps)</label>
+                        <textarea id="semicolonEmails" readonly></textarea>
+                    </details>
+                </section>
+
+                <div class="list-head">
+                    <h2 id="resultsHeader" class="results-header"></h2>
+                    <div id="resultsSummary" class="results-summary"></div>
+                </div>
+                <div id="resultsList" class="results-list"></div>
+            </div>
+        </main>
+    </div>
+</div>
 
 <script>
     let currentTab = 'federal';
     let FOIA_DATABASE = [];
     let STATE_DATABASE = [];
 
+    const FEDERAL_LAW = {
+        statute: 'Freedom of Information Act',
+        citation: '5 U.S.C. § 552',
+        response_days: '20 business days',
+        residency_required: false
+    };
 
     const input = document.getElementById('searchInput');
     const dropdown = document.getElementById('suggestionsDropdown');
@@ -316,6 +324,10 @@
 
     function normalize(value) {
         return String(value || '').trim().toLowerCase();
+    }
+
+    function isHttpUrl(value) {
+        return typeof value === 'string' && /^https?:\/\//i.test(value);
     }
 
     function validateDatabase(data, mode) {
@@ -338,15 +350,30 @@
         return data;
     }
 
+    function groups() {
+        return currentTab === 'federal' ? FOIA_DATABASE : STATE_DATABASE;
+    }
+
+    function groupName(group) {
+        return currentTab === 'federal' ? group.deptName : group.state;
+    }
+
+    function groupContacts(group) {
+        return currentTab === 'federal' ? group.components : group.agencies;
+    }
+
     function updateStatus() {
-        const data = currentTab === 'federal' ? FOIA_DATABASE : STATE_DATABASE;
+        const data = groups();
         if (loadErrors[currentTab]) {
             banner.className = 'status-banner status-warning';
             banner.textContent = 'Unable to load the ' + currentTab + ' database. Serve this folder over HTTP, then reload the page.';
         } else {
-            banner.className = 'status-banner ' + (data.length ? 'status-success' : 'status-loading');
-            banner.textContent = data.length ? 'Loaded ' + data.length + (currentTab === 'federal' ? ' federal departments.' : ' states and D.C.') : 'Loading database...';
+            banner.className = 'status-banner';
+            banner.textContent = data.length
+                ? (currentTab === 'federal' ? data.length + ' federal departments and agencies.' : data.length + ' states and D.C.') + ' Contacts are unverified unless noted; confirm with the agency before relying on them.'
+                : 'Loading database...';
         }
+        renderRail();
     }
 
     async function loadDatabase(mode, path) {
@@ -362,9 +389,34 @@
         updateStatus();
     }
 
+    function addText(parent, className, text, tag) {
+        const node = document.createElement(tag || 'div');
+        node.className = className;
+        node.textContent = text;
+        parent.appendChild(node);
+        return node;
+    }
+
+    function renderRail() {
+        const list = document.getElementById('railList');
+        document.getElementById('railLabel').textContent = currentTab === 'federal' ? 'Departments & agencies' : 'Jurisdictions';
+        list.replaceChildren();
+        const selected = normalize(input.value);
+        const sorted = [...groups()].sort((a, b) => groupName(a).localeCompare(groupName(b)));
+        for (const group of sorted) {
+            const name = groupName(group);
+            const button = addText(list, 'rail-item' + (normalize(name) === selected ? ' active' : ''), name, 'button');
+            button.type = 'button';
+            if (normalize(name) === selected) button.ariaCurrent = 'true';
+            button.addEventListener('click', () => { input.value = name; executeSearch(); });
+        }
+    }
+
     function clearResults() {
         document.getElementById('outputSection').style.display = 'none';
+        document.getElementById('emptyState').style.display = 'block';
         document.getElementById('stateInfoBox').style.display = 'none';
+        document.getElementById('stateDetails').replaceChildren();
         document.getElementById('resultsList').replaceChildren();
         document.getElementById('commaEmails').value = '';
         document.getElementById('semicolonEmails').value = '';
@@ -376,87 +428,135 @@
         currentTab = tab;
         document.getElementById('tabFederal').classList.toggle('active', tab === 'federal');
         document.getElementById('tabState').classList.toggle('active', tab === 'state');
-        input.placeholder = tab === 'federal' ? 'Type federal department or agency name...' : 'Type state, statute, or agency name...';
+        input.placeholder = tab === 'federal' ? 'Department, agency or acronym' : 'State, statute or agency';
         input.value = '';
         clearResults();
         updateStatus();
     }
 
     function matches(query) {
-        const groups = currentTab === 'federal' ? FOIA_DATABASE : STATE_DATABASE;
-        return groups.flatMap(group => {
+        return groups().flatMap(group => {
             const parentFields = currentTab === 'federal' ? [group.deptName, group.deptAbbr] : [group.state, group.statute, group.citation];
             const parentMatch = parentFields.some(value => normalize(value).includes(query));
-            const contacts = currentTab === 'federal' ? group.components : group.agencies;
-            return contacts.filter(contact => parentMatch || [contact.title, contact.abbr].some(value => normalize(value).includes(query)))
+            return groupContacts(group).filter(contact => parentMatch || [contact.title, contact.abbr].some(value => normalize(value).includes(query)))
                 .map(contact => ({group, contact}));
         });
     }
 
-    function isHttpUrl(value) {
-        return typeof value === 'string' && /^https?:\/\//i.test(value);
+    function renderLaw(parent, law, label, contacts) {
+        const block = addText(parent, 'law', '');
+        const name = addText(block, 'law-name', (label ? label + ': ' : '') + law.statute + ' · ', 'p');
+        addText(name, 'citation', law.citation, 'span');
+        const facts = addText(block, 'law-facts', '', 'dl');
+        const fact = (term, value, small) => {
+            const cell = addText(facts, '', '');
+            addText(cell, '', term, 'dt');
+            addText(cell, small ? 'small' : '', value, 'dd');
+        };
+        fact('Response deadline', law.response_days);
+        fact('Residency required', law.residency_required ? 'Yes' : 'No');
+        const portals = [...new Set(contacts.map(contact => contact.portal).filter(isHttpUrl))];
+        const howTo = addText(facts, '', '');
+        addText(howTo, '', 'How to file', 'dt');
+        const dd = addText(howTo, 'small', currentTab === 'federal' ? 'Each office handles its own requests. ' : 'Contact each agency’s records officer. ', 'dd');
+        const shared = currentTab === 'federal' ? 'https://www.foia.gov/' : (portals.length === 1 && contacts.every(contact => contact.portal === portals[0]) ? portals[0] : '');
+        if (shared) {
+            const link = document.createElement('a');
+            link.href = shared;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.textContent = currentTab === 'federal' ? 'FOIA.gov' : 'Shared request portal';
+            dd.appendChild(link);
+        }
     }
 
-    function addText(parent, className, text) {
-        const node = document.createElement('div');
-        node.className = className;
-        node.textContent = text;
-        parent.appendChild(node);
-        return node;
-    }
-
-    function addLink(parent, label, url, text = url) {
-        if (!isHttpUrl(url)) return;
-        const line = addText(parent, 'card-detail', label + ': ');
+    function addLink(parent, className, url, text) {
+        if (!isHttpUrl(url)) return null;
         const link = document.createElement('a');
+        link.className = className;
         link.href = url;
-        link.textContent = text;
         link.target = '_blank';
         link.rel = 'noopener noreferrer';
-        line.appendChild(link);
+        link.textContent = text;
+        parent.appendChild(link);
+        return link;
+    }
+
+    function renderRow(list, contact, showGroup, group) {
+        const row = addText(list, 'agency-row', '');
+        const who = addText(row, '', '');
+        addText(who, 'agency-name', contact.title);
+        const meta = [showGroup ? groupName(group) : '', contact.abbr, contact.phone].filter(Boolean).join(' \u00b7 ');
+        if (meta) addText(who, 'agency-meta', meta);
+
+        const how = addText(row, '', '');
+        if (contact.emails.length) {
+            for (const email of contact.emails) addText(how, 'agency-email', email);
+        } else {
+            addText(how, 'agency-none', 'No verified email listed');
+        }
+        if (contact.note) addText(how, 'agency-note', contact.note);
+        else if (!contact.emails.length && !contact.phone && !isHttpUrl(contact.portal)) {
+            addText(how, 'agency-note', 'No verified contact information is available in this directory.');
+        }
+        if (isHttpUrl(contact.sourceUrl)) {
+            const source = addText(how, 'agency-source', '');
+            addLink(source, '', contact.sourceUrl, 'Official source' + (contact.sourceChecked ? ' (checked ' + contact.sourceChecked + ')' : ''));
+        }
+
+        const action = addText(row, 'agency-action', '');
+        addLink(action, 'btn ' + (contact.emails.length ? 'btn-outline' : 'btn-dark'), contact.portal, contact.portalLabel || 'Open portal');
     }
 
     function executeSearch() {
         clearResults();
         const query = normalize(input.value);
+        renderRail();
         if (!query) return;
         const rows = matches(query);
+        const matchedGroups = [...new Set(rows.map(row => row.group))];
+        const federal = currentTab === 'federal';
+        document.getElementById('emptyState').style.display = 'none';
         document.getElementById('outputSection').style.display = 'block';
-        document.getElementById('resultsHeader').textContent = rows.length ? rows.length + ' matching contacts' : 'No matching contacts found.';
+
+        document.getElementById('pageKicker').textContent = federal ? 'Federal FOIA' : 'Public records law';
+        document.getElementById('stateStatuteName').textContent = matchedGroups.length === 1
+            ? groupName(matchedGroups[0])
+            : rows.length ? 'Results for “' + input.value.trim() + '”' : 'No results';
+
+        const info = document.getElementById('stateDetails');
+        if (federal && rows.length) {
+            renderLaw(info, FEDERAL_LAW, '', rows.map(row => row.contact));
+        } else {
+            for (const group of matchedGroups) {
+                renderLaw(info, group, matchedGroups.length > 1 ? group.state : '', group.agencies);
+            }
+        }
+        document.getElementById('stateInfoBox').style.display = rows.length ? 'block' : 'none';
+
         const emails = [...new Map(rows.flatMap(row => row.contact.emails)
             .map(email => email.trim()).filter(Boolean).map(email => [email.toLowerCase(), email])).values()];
+        const withoutEmail = rows.filter(row => !row.contact.emails.some(email => email.trim())).length;
         document.getElementById('commaEmails').value = emails.join(', ');
         document.getElementById('semicolonEmails').value = emails.join('; ');
+        document.getElementById('copyPanel').style.display = rows.length ? 'block' : 'none';
+        document.getElementById('copyTitle').textContent = emails.length
+            ? 'Copy ' + (emails.length === 1 ? 'the email' : 'all ' + emails.length + ' emails')
+            : 'No emails to copy';
+        document.getElementById('copySub').textContent = withoutEmail
+            ? withoutEmail + (withoutEmail === 1 ? ' office has' : ' offices have') + ' no email and ' + (withoutEmail === 1 ? 'is' : 'are') + ' not included. See their entries below for other request options.'
+            : 'Paste into the To: or Bcc: line.';
+        document.getElementById('copyComma').disabled = !emails.length;
+        document.getElementById('copySemicolon').disabled = !emails.length;
+
+        const noun = federal ? 'Offices' : 'Agencies';
+        document.getElementById('resultsHeader').textContent = rows.length ? noun + ' (' + rows.length + ')' : 'No matching contacts found.';
+        document.getElementById('resultsSummary').textContent = rows.length
+            ? (rows.length - withoutEmail) + ' with email · ' + withoutEmail + ' without'
+            : 'Try a department name, an acronym such as FBI, or a state.';
+
         const list = document.getElementById('resultsList');
-        for (const {group, contact} of rows) {
-            const card = document.createElement('div');
-            card.className = 'card';
-            addText(card, 'card-title', contact.title);
-            addText(card, 'card-detail', currentTab === 'federal' ? group.deptName : group.state);
-            if (contact.abbr) addText(card, 'card-detail', 'Abbreviation: ' + contact.abbr);
-            if (contact.phone) addText(card, 'card-detail', 'Phone: ' + contact.phone);
-            addText(card, 'card-detail', 'Email: ' + (contact.emails.join(', ') || 'No verified email listed'));
-            addLink(card, contact.portalLabel || 'Online portal', contact.portal);
-            if (contact.note) addText(card, 'card-detail card-note', contact.note);
-            else if (!contact.emails.length && !contact.phone && !isHttpUrl(contact.portal)) {
-                addText(card, 'card-detail card-note', 'No verified contact information is available in this directory.');
-            }
-            addLink(card, 'Source', contact.sourceUrl, 'Official source'
-                + (contact.sourceChecked ? ' (checked ' + contact.sourceChecked + ')' : ''));
-            list.appendChild(card);
-        }
-        if (currentTab === 'state') {
-            const groups = [...new Set(rows.map(row => row.group))];
-            const info = document.getElementById('stateDetails');
-            info.replaceChildren();
-            document.getElementById('stateStatuteName').textContent = 'Public records statutes';
-            for (const group of groups) {
-                addText(info, 'card-detail', group.state + ': ' + group.statute + ' — ' + group.citation);
-                addText(info, 'card-detail', 'Listed response timeframe: ' + group.response_days);
-                addText(info, 'card-detail', group.residency_required ? 'Residency requirement listed: Yes' : 'Residency requirement listed: No');
-            }
-            document.getElementById('stateInfoBox').style.display = groups.length ? 'block' : 'none';
-        }
+        for (const {group, contact} of rows) renderRow(list, contact, matchedGroups.length > 1, group);
     }
 
     function showSuggestions() {
@@ -465,18 +565,13 @@
         if (!query) { dropdown.style.display = 'none'; return; }
         const suggestions = new Map();
         for (const {group, contact} of matches(query)) {
-            const parent = currentTab === 'federal' ? group.deptName : group.state;
-            suggestions.set(parent, 'Group');
+            suggestions.set(groupName(group), 'Group');
             suggestions.set(contact.title, 'Agency');
         }
         for (const [name, type] of [...suggestions].slice(0, 12)) {
-            const button = document.createElement('button');
+            const button = addText(dropdown, 'suggestion-item', name + ' (' + type + ')', 'button');
             button.type = 'button';
-            button.className = 'suggestion-item';
-            button.style.cssText = 'display:block;width:100%;text-align:left;background:white;border:0;';
-            button.textContent = name + ' (' + type + ')';
             button.addEventListener('click', () => { input.value = name; executeSearch(); });
-            dropdown.appendChild(button);
         }
         dropdown.style.display = suggestions.size ? 'block' : 'none';
     }
@@ -488,6 +583,8 @@
             await navigator.clipboard.writeText(field.value);
             banner.textContent = 'Emails copied to clipboard.';
         } catch (error) {
+            const details = field.closest && field.closest('details');
+            if (details) details.open = true;
             field.focus();
             field.select();
             banner.textContent = 'Clipboard unavailable. The emails are selected; press Ctrl+C or Command+C to copy.';
