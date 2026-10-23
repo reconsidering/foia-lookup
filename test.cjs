@@ -6,6 +6,7 @@ const script = html.match(/<script>([\s\S]*?)<\/script>/)[1];
 const federal = JSON.parse(fs.readFileSync(__dirname + '/foia_data.json'));
 const states = JSON.parse(fs.readFileSync(__dirname + '/state_foia_data.json'));
 function element() { return {style:{},textContent:'',value:'',children:[],classList:{toggle(){}},replaceChildren(){this.children=[];},appendChild(n){this.children.push(n);},addEventListener(){},focus(){this.focused=true;},select(){this.selected=true;}}; }
+function text(n){return (n.textContent||'')+(n.children||[]).map(text).join('');}
 async function run(failFederal=false) {
  const nodes = new Map();
  const document = { getElementById(id){if(!nodes.has(id)) nodes.set(id,element()); return nodes.get(id);},createElement:element,addEventListener(){} };
@@ -19,15 +20,15 @@ async function run(failFederal=false) {
  search('California','state');assert.equal(nodes.get('resultsList').children.length,states.find(s=>s.state==='California').agencies.length);assert.equal(nodes.get('stateInfoBox').style.display,'block');
  search('CPRA','state');assert.ok(nodes.get('resultsList').children.length);
  search('District of Columbia','state');assert.ok(nodes.get('resultsList').children.length);
- search('Virginia','state');assert.ok(nodes.get('stateDetails').children.some(n=>/Yes/.test(n.textContent)));
+ search('Virginia','state');assert.match(text(nodes.get('stateDetails')),/Residency requiredYes/);
  await context.copyToClipboard('commaEmails');assert.equal(context.copied,nodes.get('commaEmails').value);
  context.navigator.clipboard=undefined;await context.copyToClipboard('commaEmails');assert.ok(nodes.get('commaEmails').selected);
- search('Food and Drug Administration');assert.equal(nodes.get('resultsList').children.length,1);assert.ok(nodes.get('resultsList').children[0].children.some(n=>/Online portal/.test(n.textContent)));assert.ok(nodes.get('resultsList').children[0].children.some(n=>/FOIA\.gov/.test(n.textContent)));
+ search('Food and Drug Administration');assert.equal(nodes.get('resultsList').children.length,1);assert.match(text(nodes.get('resultsList').children[0]),/Open portal/);assert.match(text(nodes.get('resultsList').children[0]),/FOIA\.gov/);assert.match(nodes.get('copySub').textContent,/1 office has no email/);
  assert.equal(nodes.get('commaEmails').value,'');
  search('nothing matches');assert.equal(nodes.get('commaEmails').value,'');assert.match(nodes.get('resultsHeader').textContent,/No matching/);
  search('');assert.equal(nodes.get('outputSection').style.display,'none');
  vm.runInContext(`FOIA_DATABASE=[{deptName:'<img onerror=bad()>',deptAbbr:'TEST',components:[{title:'<script>bad()</script>',emails:['same@example.gov',' SAME@example.gov ']}]}];`,context);
- search('TEST');assert.equal(nodes.get('commaEmails').value.toLowerCase(),'same@example.gov');assert.equal(nodes.get('resultsList').children[0].children[0].textContent,'<script>bad()</script>');
+ search('TEST');assert.equal(nodes.get('commaEmails').value.toLowerCase(),'same@example.gov');assert.equal(nodes.get('resultsList').children[0].children[0].children[0].textContent,'<script>bad()</script>');
  nodes.get('searchInput').value='TEST';context.showSuggestions();assert.equal(nodes.get('suggestionsDropdown').children.length,2);
  assert.throws(()=>context.validateDatabase({},'federal'));
  assert.throws(()=>context.validateDatabase([{deptName:'bad',components:[{title:'bad',emails:[3]}]}],'federal'));
