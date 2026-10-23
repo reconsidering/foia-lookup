@@ -212,6 +212,7 @@
         .agency-email { font-family: var(--mono); font-size: 14px; overflow-wrap: anywhere; }
         .agency-none { font-size: 14px; color: var(--ink-2); }
         .agency-note { font-size: 13px; color: var(--muted); margin-top: 4px; overflow-wrap: anywhere; }
+        .agency-source { font-size: 13px; margin-top: 4px; }
         .agency-action { text-align: right; }
 
         @media (max-width: 760px) {
@@ -338,7 +339,11 @@
                     typeof contact.title !== 'string' || !Array.isArray(contact.emails)
                     || contact.emails.some(email => typeof email !== 'string')
                     || (contact.portal !== undefined && typeof contact.portal !== 'string')
-                    || (contact.note !== undefined && typeof contact.note !== 'string'))) {
+                    || (contact.portalLabel !== undefined && typeof contact.portalLabel !== 'string')
+                    || (contact.note !== undefined && typeof contact.note !== 'string')
+                    || (contact.sourceUrl !== undefined && typeof contact.sourceUrl !== 'string')
+                    || (contact.sourceChecked !== undefined && (typeof contact.sourceChecked !== 'string'
+                        || !/^\d{4}-\d{2}-\d{2}$/.test(contact.sourceChecked))))) {
                 throw new Error('Invalid database structure');
             }
         }
@@ -465,31 +470,42 @@
         }
     }
 
+    function addLink(parent, className, url, text) {
+        if (!isHttpUrl(url)) return null;
+        const link = document.createElement('a');
+        link.className = className;
+        link.href = url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = text;
+        parent.appendChild(link);
+        return link;
+    }
+
     function renderRow(list, contact, showGroup, group) {
         const row = addText(list, 'agency-row', '');
         const who = addText(row, '', '');
         addText(who, 'agency-name', contact.title);
-        const meta = [showGroup ? groupName(group) : '', contact.abbr, contact.phone].filter(Boolean).join(' · ');
+        const meta = [showGroup ? groupName(group) : '', contact.abbr, contact.phone].filter(Boolean).join(' \u00b7 ');
         if (meta) addText(who, 'agency-meta', meta);
 
         const how = addText(row, '', '');
         if (contact.emails.length) {
             for (const email of contact.emails) addText(how, 'agency-email', email);
         } else {
-            addText(how, 'agency-none', isHttpUrl(contact.portal) ? 'Portal only — no email listed' : 'No email listed');
+            addText(how, 'agency-none', 'No verified email listed');
         }
         if (contact.note) addText(how, 'agency-note', contact.note);
+        else if (!contact.emails.length && !contact.phone && !isHttpUrl(contact.portal)) {
+            addText(how, 'agency-note', 'No verified contact information is available in this directory.');
+        }
+        if (isHttpUrl(contact.sourceUrl)) {
+            const source = addText(how, 'agency-source', '');
+            addLink(source, '', contact.sourceUrl, 'Official source' + (contact.sourceChecked ? ' (checked ' + contact.sourceChecked + ')' : ''));
+        }
 
         const action = addText(row, 'agency-action', '');
-        if (isHttpUrl(contact.portal)) {
-            const link = document.createElement('a');
-            link.className = 'btn ' + (contact.emails.length ? 'btn-outline' : 'btn-dark');
-            link.href = contact.portal;
-            link.target = '_blank';
-            link.rel = 'noopener noreferrer';
-            link.textContent = 'Open portal';
-            action.appendChild(link);
-        }
+        addLink(action, 'btn ' + (contact.emails.length ? 'btn-outline' : 'btn-dark'), contact.portal, contact.portalLabel || 'Open portal');
     }
 
     function executeSearch() {
@@ -528,7 +544,7 @@
             ? 'Copy ' + (emails.length === 1 ? 'the email' : 'all ' + emails.length + ' emails')
             : 'No emails to copy';
         document.getElementById('copySub').textContent = withoutEmail
-            ? withoutEmail + (withoutEmail === 1 ? ' office has' : ' offices have') + ' no email and ' + (withoutEmail === 1 ? 'is' : 'are') + ' not included. Use the portal links below.'
+            ? withoutEmail + (withoutEmail === 1 ? ' office has' : ' offices have') + ' no email and ' + (withoutEmail === 1 ? 'is' : 'are') + ' not included. See their entries below for other request options.'
             : 'Paste into the To: or Bcc: line.';
         document.getElementById('copyComma').disabled = !emails.length;
         document.getElementById('copySemicolon').disabled = !emails.length;

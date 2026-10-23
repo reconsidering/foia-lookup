@@ -34,6 +34,15 @@ python -m http.server 8000
 
 Open http://localhost:8000/FOIA_Lookup.html. Opening the HTML directly with a `file://` URL may block JSON loading. Each database loads independently; a failed database displays a loading error when its tab is selected.
 
-Contacts may carry a `portal` URL (shown as a link) and a `note` (for example, "portal only" or "no verified email"). Both fields are optional. Entries pointing to FOIA.gov have no verified direct contact in this directory. Federal additions were checked against web search results only; agency pages could not be fetched directly, so confirm before relying on them.
+Contacts may carry a `portal` URL and a `note` describing request methods or missing contact information. Optional `portalLabel` distinguishes a request portal from a page of request instructions. Inquiry-only or accessibility-fallback addresses are described in notes and kept out of the copyable request email lists.
 
-The bundled contacts and statute summaries have no source URLs or verification dates. Confirm details with the relevant agency before relying on them.
+The state directory contains 1,058 agencies across all 50 states and D.C., including 758 added departments and subagencies. New entries include an official `sourceUrl` and `sourceChecked` date, displayed with each result. If no request contact has been verified, the entry says so and links to its official source. An agency directory establishes an agency listing, not necessarily a request channel. See [state coverage and source notes](docs/state-coverage.md) for jurisdiction counts, scope, and maintenance guidance. This is a curated directory and does not claim to include every public body.
+
+Legacy entries without sources and the statute summaries have not been reverified. Entries pointing to FOIA.gov have no verified direct contact in this directory. Federal additions were checked against indexed web results only. Confirm details with the relevant agency before relying on them.
+
+Run the dependency-free checks with:
+
+```sh
+node test.cjs
+node test-data.cjs
+```
